@@ -1,0 +1,751 @@
+-- MySQL dump 10.13  Distrib 5.7.35, for Linux (x86_64)
+--
+-- Host: localhost    Database: wffounda_whitefield
+-- ------------------------------------------------------
+-- Server version	5.7.35-cll-lve
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `course_questions`
+--
+
+DROP TABLE IF EXISTS `course_questions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `course_questions` (
+  `id` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `section` bigint(20) unsigned NOT NULL,
+  `course` bigint(20) unsigned NOT NULL,
+  `question` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `answer` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option1` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option2` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `option3` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_score` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_questions`
+--
+
+LOCK TABLES `course_questions` WRITE;
+/*!40000 ALTER TABLE `course_questions` DISABLE KEYS */;
+INSERT INTO `course_questions` VALUES (1,'2021-09-19 06:13:40','2021-09-19 06:13:40',1,1,'An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript','test','0000','5','123','200'),(2,'2021-09-19 06:14:41','2021-09-19 06:14:41',1,1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,','test','test','yes','no','300'),(1,'2021-09-19 06:13:40','2021-09-19 06:13:40',1,1,'An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript','test','0000','5','123','200'),(2,'2021-09-19 06:14:41','2021-09-19 06:14:41',1,1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,','test','test','yes','no','300'),(3,'2021-09-27 20:38:55','2021-09-27 20:38:55',1,1,'jbiukbj','kjnb,bj','kbnbkj','ln.knlkn','kbkjbjhbk','jbkjb'),(1,'2021-09-19 06:13:40','2021-09-19 06:13:40',1,1,'An angular 2 project written in typescript is* transpiled to javascript duri*ng the build process. Which of the following additional features are provided to the developer while programming on typescript over javascript','test','0000','5','123','200'),(2,'2021-09-19 06:14:41','2021-09-19 06:14:41',1,1,'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,','test','test','yes','no','300'),(3,'2021-09-27 20:38:55','2021-09-27 20:38:55',1,1,'jbiukbj','kjnb,bj','kbnbkj','ln.knlkn','kbkjbjhbk','jbkjb');
+/*!40000 ALTER TABLE `course_questions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_sections`
+--
+
+DROP TABLE IF EXISTS `course_sections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `course_sections` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  `course` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_sections_course_foreign` (`course`),
+  CONSTRAINT `course_sections_course_foreign` FOREIGN KEY (`course`) REFERENCES `courses` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_sections`
+--
+
+LOCK TABLES `course_sections` WRITE;
+/*!40000 ALTER TABLE `course_sections` DISABLE KEYS */;
+INSERT INTO `course_sections` VALUES (1,'General Life Skills','This section will let you in on what you need to create a good life plan for yourself. You will also learn all about EQUIP and how you can benefiti from it.',1,'2021-10-02 18:23:22','2021-10-10 17:02:19'),(2,'Employability Skills','Learn to how to get a job, keep a job, recruit employees and get the best out of employees.',1,'2021-10-10 16:00:26','2021-10-10 16:00:26'),(3,'Entrepreneurship Skills','Learn how to develop a business plan, brand your business, keep records, attract funding and build a successful business',1,'2021-10-10 16:06:39','2021-10-10 16:06:39'),(4,'Farming & AgriBusiness','What you need to know to successfully start, grow and build agri-business in Nigeria',2,'2021-10-10 16:14:24','2021-10-10 16:14:24'),(5,'Technology Skills','Learn to how to make Graphics for social media, how to use excel in the workplace for data management and how to create a website for your business.',2,'2021-10-10 16:17:53','2021-10-11 18:09:15'),(6,'Domestic Household Essentials','Learn how to make household essentials for domestic use, community health and generate income as well.',2,'2021-10-10 16:19:14','2021-10-11 18:10:19'),(7,'Food Management, Snacks, Cocktails & Cocktails','Learn skills that will help you succeed in food business as a whole. You will also learn how to make confectioneries and drinks for commercial purpose.',2,'2021-10-10 16:20:36','2021-10-11 18:12:44'),(8,'Events Planning & Decoration','Learn practical skills that will help you start and grow your event management enterprise.',2,'2021-10-10 16:22:13','2021-10-10 16:22:13'),(9,'Beauty','Learn skills that will help you grow your beauty businesses.',2,'2021-10-10 16:23:50','2021-10-10 16:23:50'),(10,'Trading & Business Operations','Learn skills that will help you start and grow your trading business as well as strengthen your business operations.',2,'2021-10-10 16:24:54','2021-10-10 16:24:54');
+/*!40000 ALTER TABLE `course_sections` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courses`
+--
+
+DROP TABLE IF EXISTS `courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `courses` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `duration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumbnail` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `author` bigint(20) unsigned NOT NULL,
+  `slug` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_published` enum('draft','published') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'draft',
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `trailler_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courses_author_foreign` (`author`),
+  CONSTRAINT `courses_author_foreign` FOREIGN KEY (`author`) REFERENCES `teachers` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courses`
+--
+
+LOCK TABLES `courses` WRITE;
+/*!40000 ALTER TABLE `courses` DISABLE KEYS */;
+INSERT INTO `courses` VALUES (1,'EQUIP LEVEL ONE','2 Hours','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1636994501/course-thumbnail/svfyxm0idkzufonq2ikn.jpg','This course consists of classes and lessons that will empower you with life skills, employability skills and entrepreneurship skills. You will be introduced to concepts that will help you build a successful career, start a business and create a life plan that will lead to financial empowerment for you.',22,'equip-level-one','draft','2021-10-31','2021-11-30','2021-10-02 17:55:21','2021-11-15 16:41:42','https://player.vimeo.com/video/619119460'),(2,'EQUIP LEVEL TWO','3 hours','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1636994567/course-thumbnail/b9025frnapfhaptbzfkv.jpg','In this course you will learn various practical money making skills that will equip you to earn income. The skills are easy to learn, easy to start and economically viable. All you need do is watch over and over again to master it.',22,'equip-level-two','draft','2021-12-01','2021-12-31','2021-10-05 12:49:18','2021-11-15 16:42:47','https://player.vimeo.com/video/619119460'),(3,'EQUIP LEVEL THREE','1 Hour','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1636994595/course-thumbnail/rae6doir1putd4vkiusj.jpg','In this course you will learn how to grow your business and entrepreneurship skills. You will be equip with strategy to scale your business and to transit from being an employee to an employer. You will also learn how to fulfill your potentials and birth your ideas.',22,'equip-level-three','draft','2022-01-01','2022-01-31','2021-10-05 13:00:50','2021-11-15 16:43:17','https://player.vimeo.com/video/619119460'),(4,'EQUIP LEVEL FOUR','1 Hour','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1636994641/course-thumbnail/wmjitlzmthlwnl28dtk0.jpg','This is a practical session where you submit practical videos of what you\'ve learnt. You will also learn to pitch and submit your pitch ideas. The Agriculture stream will be connected with opportunity to get funding. Grants of different categories will also be awarded to 1,000 participants that have excelled.',22,'equip-level-four','draft','2022-02-01','2022-02-28','2021-10-05 13:13:47','2021-11-15 16:44:02','https://player.vimeo.com/video/619119460');
+/*!40000 ALTER TABLE `courses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enrollments`
+--
+
+DROP TABLE IF EXISTS `enrollments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `enrollments` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `student` bigint(20) unsigned NOT NULL,
+  `course` bigint(20) unsigned NOT NULL,
+  `status` enum('registered','inprogress','completed') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'registered',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `enrollments_student_foreign` (`student`),
+  KEY `enrollments_course_foreign` (`course`),
+  CONSTRAINT `enrollments_course_foreign` FOREIGN KEY (`course`) REFERENCES `courses` (`id`),
+  CONSTRAINT `enrollments_student_foreign` FOREIGN KEY (`student`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enrollments`
+--
+
+LOCK TABLES `enrollments` WRITE;
+/*!40000 ALTER TABLE `enrollments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enrollments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+DROP TABLE IF EXISTS `failed_jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `failed_jobs`
+--
+
+LOCK TABLES `failed_jobs` WRITE;
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `features`
+--
+
+DROP TABLE IF EXISTS `features`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `features` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `course` bigint(20) unsigned NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `features_course_foreign` (`course`),
+  CONSTRAINT `features_course_foreign` FOREIGN KEY (`course`) REFERENCES `courses` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `features`
+--
+
+LOCK TABLES `features` WRITE;
+/*!40000 ALTER TABLE `features` DISABLE KEYS */;
+INSERT INTO `features` VALUES (1,1,'Life Skills','2021-10-02 17:55:33','2021-10-02 17:55:33'),(2,1,'Employability Skills','2021-10-02 17:55:40','2021-10-02 17:55:40'),(3,1,'How To Start A Business','2021-10-02 17:55:48','2021-10-02 17:55:48'),(4,1,'How to Build A Successful Life in Business and Career','2021-10-02 17:56:06','2021-10-02 17:56:06'),(5,1,'How To Develop A Winning Business Plan','2021-10-02 17:56:42','2021-10-02 17:56:42'),(6,2,'How To Start A Business','2021-10-05 12:52:13','2021-10-05 12:52:13'),(7,2,'Practical Money Making Skills','2021-10-05 12:52:34','2021-10-05 12:52:34'),(8,2,'Vocational Skills','2021-10-05 12:52:47','2021-10-05 12:52:47'),(9,2,'Technology skills','2021-10-05 12:52:53','2021-10-05 12:52:53'),(10,3,'Life Skills','2021-10-05 13:00:56','2021-10-05 13:00:56'),(11,3,'How to do business in Nigeria','2021-10-05 13:01:03','2021-10-05 13:01:03'),(12,3,'Entrepreneurship skills','2021-10-05 13:01:24','2021-10-05 13:01:24'),(13,3,'Moving from Idea to Implementation','2021-10-05 13:01:47','2021-10-05 13:01:59'),(14,4,'Practical Learning','2021-10-05 13:14:06','2021-10-05 13:14:35'),(15,4,'Business Pitches','2021-10-05 13:14:19','2021-10-05 13:14:19'),(16,4,'Funding Opportunities','2021-10-05 13:14:58','2021-10-05 13:14:58'),(17,4,'Award of Grants','2021-10-05 13:15:08','2021-10-05 13:15:08');
+/*!40000 ALTER TABLE `features` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `forums`
+--
+
+DROP TABLE IF EXISTS `forums`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `forums` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user` bigint(20) unsigned NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `forums_user_foreign` (`user`),
+  CONSTRAINT `forums_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `forums`
+--
+
+LOCK TABLES `forums` WRITE;
+/*!40000 ALTER TABLE `forums` DISABLE KEYS */;
+INSERT INTO `forums` VALUES (1,21,'test','test','2021-10-02 17:15:13','2021-10-02 17:15:13'),(2,32,'What Are Your Expectations?','So why are you here and what do you hope to achieve with the skills acquired? Le us know','2021-10-02 17:17:58','2021-10-02 17:17:58');
+/*!40000 ALTER TABLE `forums` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `migrations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (17,'2021_09_13_105126_add_start_and_end_to_courses',2),(59,'2014_10_12_000000_create_users_table',3),(60,'2014_10_12_100000_create_password_resets_table',3),(61,'2019_08_19_000000_create_failed_jobs_table',3),(62,'2019_12_14_000001_create_personal_access_tokens_table',3),(63,'2021_09_01_014530_create_teachers_table',3),(64,'2021_09_04_155629_create_courses_table',3),(65,'2021_09_05_045817_create_features_table',3),(66,'2021_09_05_062444_create_ratings_table',3),(67,'2021_09_06_133712_add_trailer_courses',3),(68,'2021_09_08_113828_laratrust_setup_tables',3),(69,'2021_09_08_115727_laratrust_setup_teams',3),(70,'2021_09_10_104927_create_course_sections_table',3),(71,'2021_09_10_105007_create_sectionlessons_table',3),(72,'2021_09_11_031040_add_gender_to_users_table',3),(73,'2021_09_11_033535_create_enrollments_table',3),(74,'2021_09_11_155646_add_author_to_users_table',3),(75,'2021_09_17_144146_create_forums_table',3),(76,'2021_09_18_184953_create_questions_comments_table',3),(77,'2021_10_28_072736_add_referred_by_to_users_table',4),(78,'2019_12_22_015115_create_short_urls_table',5),(79,'2019_12_22_015214_create_short_url_visits_table',5),(80,'2020_02_11_224848_update_short_url_table_for_version_two_zero_zero',5),(81,'2020_02_12_008432_update_short_url_visits_table_for_version_two_zero_zero',5),(82,'2020_04_10_224546_update_short_url_table_for_version_three_zero_zero',5);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+INSERT INTO `password_resets` VALUES ('beulahtoks@thecapstoneonline.com','$2y$10$WRP/wh6NeYYCW9kuNCQQUO9Xn/wSsLWzJgptWJlJ5U4rdYa/pnXz6','2021-09-18 14:00:16');
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permission_role`
+--
+
+DROP TABLE IF EXISTS `permission_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permission_role` (
+  `permission_id` bigint(20) unsigned NOT NULL,
+  `role_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`permission_id`,`role_id`),
+  KEY `permission_role_role_id_foreign` (`role_id`),
+  CONSTRAINT `permission_role_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `permission_role_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permission_role`
+--
+
+LOCK TABLES `permission_role` WRITE;
+/*!40000 ALTER TABLE `permission_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permission_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permission_user`
+--
+
+DROP TABLE IF EXISTS `permission_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permission_user` (
+  `permission_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `user_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `team_id` int(10) unsigned DEFAULT NULL,
+  UNIQUE KEY `permission_user_user_id_permission_id_user_type_team_id_unique` (`user_id`,`permission_id`,`user_type`,`team_id`),
+  KEY `permission_user_permission_id_foreign` (`permission_id`),
+  KEY `permission_user_team_id_foreign` (`team_id`),
+  CONSTRAINT `permission_user_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `permissions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `permission_user_team_id_foreign` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permission_user`
+--
+
+LOCK TABLES `permission_user` WRITE;
+/*!40000 ALTER TABLE `permission_user` DISABLE KEYS */;
+/*!40000 ALTER TABLE `permission_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `permissions`
+--
+
+DROP TABLE IF EXISTS `permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `permissions` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `permissions_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `permissions`
+--
+
+LOCK TABLES `permissions` WRITE;
+/*!40000 ALTER TABLE `permissions` DISABLE KEYS */;
+INSERT INTO `permissions` VALUES (1,'crudcourse',NULL,NULL,'2021-09-13 10:04:06','2021-09-13 10:04:06'),(2,'crudteachers',NULL,NULL,'2021-09-13 10:04:06','2021-09-13 10:04:06');
+/*!40000 ALTER TABLE `permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+DROP TABLE IF EXISTS `personal_access_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+LOCK TABLES `personal_access_tokens` WRITE;
+/*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `questions_comments`
+--
+
+DROP TABLE IF EXISTS `questions_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `questions_comments` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user` bigint(20) unsigned NOT NULL,
+  `question` bigint(20) unsigned NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `questions_comments_user_foreign` (`user`),
+  KEY `questions_comments_question_foreign` (`question`),
+  CONSTRAINT `questions_comments_question_foreign` FOREIGN KEY (`question`) REFERENCES `forums` (`id`),
+  CONSTRAINT `questions_comments_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `questions_comments`
+--
+
+LOCK TABLES `questions_comments` WRITE;
+/*!40000 ALTER TABLE `questions_comments` DISABLE KEYS */;
+INSERT INTO `questions_comments` VALUES (1,32,1,'Hello Yes i agree with you','2021-10-02 17:16:45','2021-10-02 17:16:45');
+/*!40000 ALTER TABLE `questions_comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ratings`
+--
+
+DROP TABLE IF EXISTS `ratings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ratings` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `rating` int(11) NOT NULL DEFAULT '1',
+  `comments` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course` bigint(20) unsigned NOT NULL,
+  `user` bigint(20) unsigned NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ratings_course_foreign` (`course`),
+  KEY `ratings_user_foreign` (`user`),
+  CONSTRAINT `ratings_course_foreign` FOREIGN KEY (`course`) REFERENCES `courses` (`id`),
+  CONSTRAINT `ratings_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ratings`
+--
+
+LOCK TABLES `ratings` WRITE;
+/*!40000 ALTER TABLE `ratings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role_user`
+--
+
+DROP TABLE IF EXISTS `role_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `role_user` (
+  `role_id` bigint(20) unsigned NOT NULL,
+  `user_id` bigint(20) unsigned NOT NULL,
+  `user_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `team_id` int(10) unsigned DEFAULT NULL,
+  UNIQUE KEY `role_user_user_id_role_id_user_type_team_id_unique` (`user_id`,`role_id`,`user_type`,`team_id`),
+  KEY `role_user_role_id_foreign` (`role_id`),
+  KEY `role_user_team_id_foreign` (`team_id`),
+  CONSTRAINT `role_user_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `role_user_team_id_foreign` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role_user`
+--
+
+LOCK TABLES `role_user` WRITE;
+/*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
+INSERT INTO `role_user` VALUES (1,22,'App\\Models\\User',NULL),(1,22,'App\\Models\\User',NULL),(1,22,'App\\Models\\User',NULL),(2,22,'App\\Models\\User',NULL),(2,22,'App\\Models\\User',NULL),(3,22,'App\\Models\\User',NULL),(3,22,'App\\Models\\User',NULL),(3,22,'App\\Models\\User',NULL);
+/*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `roles` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `roles_name_unique` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'superadmin','Super Admin',NULL,'2021-09-08 11:26:27','2021-09-08 11:26:27'),(2,'admin','Admin',NULL,'2021-09-08 11:26:27','2021-09-08 11:26:27'),(3,'student','Student',NULL,'2021-09-08 11:26:27','2021-09-08 11:26:27');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sectionlessons`
+--
+
+DROP TABLE IF EXISTS `sectionlessons`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sectionlessons` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `section` bigint(20) unsigned NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `duration` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video_url` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `authorm` bigint(20) unsigned DEFAULT NULL,
+  `author` bigint(20) unsigned NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `sectionlessons_section_foreign` (`section`),
+  KEY `author` (`author`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=87 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sectionlessons`
+--
+
+LOCK TABLES `sectionlessons` WRITE;
+/*!40000 ALTER TABLE `sectionlessons` DISABLE KEYS */;
+INSERT INTO `sectionlessons` VALUES (24,6,'Introduction To Domestic Essentials','10 Minutes','https://player.vimeo.com/video/619042995','2021-09-23 13:46:24','2021-10-13 14:27:29',NULL,36,'In this lesson you will learn;\r\n\r\nWhat are domestic essentials product and what is there usefulness.'),(25,6,'Introduction To Chemicals','10 Minutes','https://player.vimeo.com/video/619043584','2021-09-23 13:46:54','2021-10-13 14:29:36',NULL,36,'In this lesson you will learn;\r\n\r\nthe chemicals you will need for production of domestic household essentials, where to get them and safety precautions to put in place.'),(26,6,'How To Make Hand Sanitizer','35 minutes','https://player.vimeo.com/video/619068012','2021-09-23 14:12:52','2021-10-13 14:34:36',NULL,36,'In this lesson you will learn;\r\n\r\nThe Ingredients needed to make high quality hand sanitizers\r\nStep by step process of making hand sanitizer.'),(27,6,'How To Make Hand Wash','35 minutes','https://player.vimeo.com/video/631102384','2021-09-23 14:13:19','2021-10-13 15:04:31',NULL,36,'In this lesson you will learn;\r\n\r\nAll the ingredients needed to make high quality hand wash\r\nStep by Step process of making top quality hand wash'),(28,6,'How To Make Bleach & Scrubbing Powder','45 minutes','https://player.vimeo.com/video/631101434','2021-09-23 14:20:13','2021-10-13 15:04:54',NULL,36,'In this lesson you will learn;\r\n\r\nAll the ingredients needed to produce top quality bleach and scrubbing powder.\r\nStep by step process of how to make top quality bleach and scrubbing powder.'),(29,6,'How To Make Liquid Soap','35 minutes','https://player.vimeo.com/video/631099465','2021-09-23 14:20:57','2021-10-13 15:05:21',NULL,36,'In this lesson you will learn;\r\n\r\nThe Ingredients needed to make high quality liquid soap\r\nStep by step process of making top quality liquid soap'),(30,7,'The Four C’s In Food Management','29 Minutes','https://player.vimeo.com/video/614577304','2021-09-23 14:21:25','2021-10-13 15:12:10',NULL,27,'In this lesson you will learn;\r\n\r\nthe four major factors that will determine your success in the food business.'),(31,7,'Introduction To Snacks Classes','1 Minute','https://player.vimeo.com/video/614581175','2021-09-23 14:21:54','2021-10-13 15:11:49',NULL,27,'In this lesson you will learn;\r\n\r\nHow to start a snacks business and what you need to succeed at it.'),(32,7,'How To Make Chinchin','19 Minutes','https://player.vimeo.com/video/612775661','2021-09-23 14:22:44','2021-10-13 15:24:04',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality chinchin\r\nStep by step process of making good quality chinchin\r\nDifferent styles of making chinchin'),(35,7,'How To Make Doughnuts','19 Minutes','https://player.vimeo.com/video/612712862','2021-09-23 14:23:55','2021-10-13 15:25:54',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality Doughnuts\r\nStep by step process of making good quality Doughnuts\r\nDifferent styles of making Doughnuts'),(48,1,'Welcome Address','10 Minutes','https://player.vimeo.com/video/619119460','2021-10-10 17:23:36','2021-10-10 17:23:36',21,0,'Learn all about EQUIP'),(50,1,'All About EQUIP','10 Minutes','https://player.vimeo.com/video/619119460','2021-10-10 18:30:32','2021-10-10 18:30:32',NULL,21,'What is EQUIP? \r\n  Learn what EQUIP is about and how you can benefit'),(51,1,'Personality Test: Getting To Become Self Aware','10 Minutes','https://player.vimeo.com/video/619119460','2021-10-13 11:41:55','2021-10-13 11:41:55',NULL,21,'This lesson will show you how to become self aware. Go to the recommended site: www.16personalitiestest.com and take the free test to help you know your area of strength.'),(52,1,'Financial Literacy','15 Minutes','https://player.vimeo.com/video/619119460','2021-10-13 11:43:08','2021-10-13 11:43:08',NULL,21,'In this lesson you will learn how to develop a savings culture that will help you increase your resources.'),(53,2,'Help I Need A Job','21 Minutes','https://player.vimeo.com/video/614503121','2021-10-13 11:47:26','2021-10-13 11:49:10',NULL,26,'In this lesson you will learn how to prepare yourself to get a job, and where to get your dream jobs.'),(54,2,'How to Write A Good CV and Prepare For An Interview.','21 Minutes','https://player.vimeo.com/video/614503479','2021-10-13 11:55:49','2021-10-13 11:55:49',NULL,26,'Learn to prepare a convincing CV/resume and how to navigate an interview session.'),(55,1,'Roadmap To A Successful Life','30 Minutes','https://player.vimeo.com/video/619108747','2021-10-13 12:10:07','2021-10-13 12:10:07',NULL,21,'Learn the steps you need to put in place in your life to live a successful life.'),(56,2,'How to Build A Successful Career','40 Minutes','https://player.vimeo.com/video/619228949','2021-10-13 12:14:16','2021-10-13 12:14:16',NULL,23,'Learn the secrets of excelling in a job.'),(57,2,'Customer Service in the Workplace','30 Minutes','https://player.vimeo.com/video/619231797','2021-10-13 12:18:52','2021-10-13 12:18:52',NULL,28,'In this lesson you will learn;\r\n\r\nWhat is customer service? \r\nHow does it apply in the work place?\r\nWho are you internal and external customers?\r\nAnd how to develop the right attitude that will give you great customer reviews.'),(58,2,'Journey To Self-Discovery','10 minutes','https://player.vimeo.com/video/614504279','2021-10-13 12:23:11','2021-10-13 12:23:11',NULL,39,'In this lesson you will learn;\r\n\r\nPersonal testimonial of how to move your life towards your dream and actions.'),(59,2,'Steps To Becoming A Successful Career Person','30 Minutes','https://player.vimeo.com/video/619228949','2021-10-13 12:27:17','2021-10-13 12:27:17',NULL,24,'In this lesson you will learn;\r\n\r\nPractical steps to navigating the work environment.\r\nHow to recruit and keep good staff in your business.\r\nWhat is organizational development and how can you achieve it.\r\nAnd more about growing yourself to become a leader in your sector.'),(60,2,'Industry 4.0: The Jobs of The Future','30 Minutes','https://player.vimeo.com/video/619124165','2021-10-13 12:30:54','2021-10-13 12:30:54',NULL,29,'In this lesson you will learn;\r\n\r\nWhat is Industry 4.0.\r\nWhat jobs are going to be the relevant ones in the future.\r\nWhat is the future of Jobs\r\nAnd how you can leverage the future for your good.'),(61,2,'The Future of Jobs: Q & A','35 minutes','https://player.vimeo.com/video/619130272','2021-10-13 12:34:24','2021-10-13 12:34:24',NULL,29,'In this lesson you will learn;\r\n\r\nPractical steps you can take to be properly positioned to keep ahead of the future.'),(62,3,'How To Get Funding For Your Business in Nigeria.','30 Minutes','https://player.vimeo.com/video/619119531','2021-10-13 12:38:41','2021-10-13 12:38:41',NULL,25,'In this lesson you will learn;\r\n\r\nHow to make your small business bankable.\r\nHow to attract the right loan for your business.\r\nWhere to get funding for your business.\r\nAnd what banks and lenders are looking for before they give you money.'),(63,3,'How To Start Agribusiness in Nigeria (Farming & Agribusiness In Nigeria)','45 Minutes','https://player.vimeo.com/video/619207903','2021-10-13 13:23:04','2021-10-13 13:23:04',NULL,30,'In this lesson you will learn;\r\n\r\nWhat is Agribusiness\r\nHow can you get involved in Agribusiness\r\nand How you can make money from Agribusiness in Nigeria'),(64,3,'How To Develop An Entrepreneurial Mindset','21 Minutes','https://player.vimeo.com/video/619094970','2021-10-13 14:04:12','2021-10-13 14:04:12',NULL,21,'In this lesson you will learn;\r\n\r\nWhat is the right mindset that will make you succeed as a business person in Nigeria.'),(65,3,'How to Write a Business Plan','15 Minutes','https://player.vimeo.com/video/619082533','2021-10-13 14:06:01','2021-10-13 14:06:01',NULL,21,'In this lesson you will learn a very practical and simple way to develop a workable business plan for your business.'),(66,3,'Why Small Businesses Fail in Nigeria','21 Minutes','https://player.vimeo.com/video/619116493','2021-10-13 14:08:16','2021-10-13 14:08:16',NULL,21,'In this lesson you will learn why new and small businesses fail in Nigeria and how you can avoid the trap of business failure.'),(67,3,'Basics of Branding','21 Minutes','https://player.vimeo.com/video/614500252','2021-10-13 14:11:16','2021-10-13 14:11:16',NULL,31,'In this lesson you will learn;\r\n\r\nWhat is branding and why you should develop your brand.\r\nHow to develop a brand\r\nAnd what will make your brand to stand out.'),(68,3,'How To Register Your Business As a Legal Entity','25 Minutes','https://player.vimeo.com/video/614504055','2021-10-13 14:13:29','2021-10-13 14:13:29',NULL,38,'In this lesson you will learn;\r\n\r\nthe legal requirements you need to put in place to run your business successfully in Nigeria.'),(69,3,'Book Keeping For Small Business','25 Minutes','https://player.vimeo.com/video/614501487','2021-10-13 14:16:05','2021-10-13 14:16:05',NULL,37,'In this lesson you will learn;\r\n\r\nThe basics of keeping records of the money transaction in your business.'),(70,3,'IT For Non IT Skills; using Social Media To Promote Your Business','21 Minutes','https://player.vimeo.com/video/614503121','2021-10-13 14:18:29','2021-10-13 14:18:29',NULL,34,'In this lesson you will learn;\r\n\r\nHow to using social media for your business.\r\nHow to develop basic IT Skills even without learning IT in a school.'),(71,3,'IT For Non IT Skills; Tools To Promote Your Business','21 Minutes','https://player.vimeo.com/video/619119460','2021-10-13 14:20:31','2021-10-13 14:20:31',NULL,34,'In this lesson you will learn;\r\n\r\nBasic IT tools that you can use to grow your business at little or no cost.\r\nHow to register your business online and start up a website.'),(72,3,'Customer Service for Business Owners','30 Minutes','https://player.vimeo.com/video/619234229','2021-10-13 14:22:29','2021-10-13 14:22:29',NULL,33,'In this lesson you will learn;\r\n\r\nHow customer service affects your business\r\nWays to deal with different kind of customers'),(74,7,'How To Make Puff Puff','14 Minutes','https://player.vimeo.com/video/612700058','2021-10-13 15:30:29','2021-10-13 15:30:29',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality Puff Puff\r\nStep by step process of making good quality Puff Puff\r\nDifferent styles of making Puff Puff'),(75,7,'How To Make Meat Pies','27 Minutes','https://player.vimeo.com/video/612740419','2021-10-13 15:32:22','2021-10-13 15:32:22',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality MeatPies\r\nStep by step process of making good quality MeatPies\r\nDifferent styles of making MeatPies'),(76,7,'How To Make Sausages','8 Minutes','https://player.vimeo.com/video/612770530','2021-10-13 15:34:17','2021-10-13 15:34:17',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality Sausages\r\nStep by step process of making good quality Sausages\r\nDifferent styles of making Sausages'),(77,7,'How To Make Sharwama','9 Minutes','https://player.vimeo.com/video/614580018','2021-10-13 15:35:58','2021-10-13 15:35:58',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality Sharwama\r\nStep by step process of making good quality Sharwama\r\nDifferent styles of making Sharwama'),(78,7,'Introduction to Mocktails and Cocktails Classes','4 Minutes','https://player.vimeo.com/video/612680136','2021-10-13 15:42:48','2021-10-13 15:42:48',NULL,27,'In this lesson you will learn;\r\n\r\nWhat are mocktails and cocktails and how to prepare them in a hygienic and profession manner'),(79,7,'How To Make Chapman (Mocktail)','7 Minutes','https://player.vimeo.com/video/612649746','2021-10-13 15:45:33','2021-10-13 15:45:33',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality Chapman\r\nStep by step process of making good quality Chapman'),(80,7,'How To Make Pina Colada (Mocktail)','6 Minutes','https://player.vimeo.com/video/612654878','2021-10-13 15:47:07','2021-10-13 15:48:49',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality Pina Colada Drink\r\nStep by step process of making good quality Pina Colada Drink'),(81,7,'How To Make Galaxy (Cocktail)','8 Minutes','https://player.vimeo.com/video/612670717','2021-10-13 15:48:34','2021-10-13 15:48:34',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality Galaxy Cocktail\r\nStep by step process of making good quality Galaxy Cocktail'),(82,7,'How To Make Cosmopolitan (Cocktail)','3 Minutes','https://player.vimeo.com/video/612662107','2021-10-13 15:50:16','2021-10-13 15:50:16',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality cosmopolitan cocktail\r\nStep by step process of making good quality cosmopolitan cocktail'),(83,7,'How To Make Classic Vodka Sunrise (Cocktail)','4 Minutes','https://player.vimeo.com/video/612666199','2021-10-13 15:52:57','2021-10-13 15:52:57',NULL,27,'In this lesson you will learn;\r\n\r\nAll the ingredients required for making good quality classic vodka sunrise cocktail\r\nStep by step process of making good quality classic vodka sunrise cocktail'),(84,5,'Steps To Becoming A Graphics Designer','17 Minutes','https://player.vimeo.com/video/612638252','2021-10-13 16:25:45','2021-10-13 16:26:44',NULL,32,'In this lesson you will learn;\r\n\r\nWhat Graphics Design is all about,\r\nWho is a Graphics designer\r\nAnd the steps you need to take to become one or be better as one.'),(85,5,'How To Design Graphics For Social Media','14 Minutes','https://player.vimeo.com/video/612635108','2021-10-13 16:29:09','2021-10-13 16:29:09',NULL,32,'In this lesson you will learn;\r\n\r\nHow to design good graphics for your social media platforms\r\nTools that you can use to do good designs \r\nAnd practical tips that will make your design stand out'),(86,5,'Desmystifying Excel','44 Minutes','https://player.vimeo.com/video/614502144','2021-10-13 16:30:53','2021-10-13 16:30:53',NULL,35,'In this lesson you will learn;\r\n\r\nHow to use the Excel Worksheet for record keeping and data sorting.');
+/*!40000 ALTER TABLE `sectionlessons` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `short_url_visits`
+--
+
+DROP TABLE IF EXISTS `short_url_visits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `short_url_visits` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `short_url_id` bigint(20) unsigned NOT NULL,
+  `ip_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `operating_system` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `operating_system_version` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `browser` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `browser_version` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `referer_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `device_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `visited_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `short_url_visits_short_url_id_foreign` (`short_url_id`),
+  CONSTRAINT `short_url_visits_short_url_id_foreign` FOREIGN KEY (`short_url_id`) REFERENCES `short_urls` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `short_url_visits`
+--
+
+LOCK TABLES `short_url_visits` WRITE;
+/*!40000 ALTER TABLE `short_url_visits` DISABLE KEYS */;
+/*!40000 ALTER TABLE `short_url_visits` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `short_urls`
+--
+
+DROP TABLE IF EXISTS `short_urls`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `short_urls` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `destination_url` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `default_short_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `single_use` tinyint(1) NOT NULL,
+  `track_visits` tinyint(1) NOT NULL,
+  `redirect_status_code` int(11) NOT NULL DEFAULT '301',
+  `track_ip_address` tinyint(1) NOT NULL DEFAULT '0',
+  `track_operating_system` tinyint(1) NOT NULL DEFAULT '0',
+  `track_operating_system_version` tinyint(1) NOT NULL DEFAULT '0',
+  `track_browser` tinyint(1) NOT NULL DEFAULT '0',
+  `track_browser_version` tinyint(1) NOT NULL DEFAULT '0',
+  `track_referer_url` tinyint(1) NOT NULL DEFAULT '0',
+  `track_device_type` tinyint(1) NOT NULL DEFAULT '0',
+  `activated_at` timestamp NULL DEFAULT '2021-11-06 17:12:53',
+  `deactivated_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `short_urls_url_key_unique` (`url_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `short_urls`
+--
+
+LOCK TABLES `short_urls` WRITE;
+/*!40000 ALTER TABLE `short_urls` DISABLE KEYS */;
+INSERT INTO `short_urls` VALUES (1,'http://equip.whitefieldfoundation.ng/register?ref=3038303333363139393031','vgk4x9eypa','http://localhost/short/vgk4x9eypa',0,1,301,1,1,1,1,1,1,1,'2021-11-06 17:13:14',NULL,'2021-11-06 17:13:14','2021-11-06 17:13:14'),(2,'http://equip.whitefieldfoundation.ng/register?ref=3038303333363139393031','EGAVMleogW','http://localhost/short/EGAVMleogW',0,1,301,1,1,1,1,1,1,1,'2021-11-06 17:15:17',NULL,'2021-11-06 17:15:17','2021-11-06 17:15:17'),(3,'http://equip.whitefieldfoundation.ng/register?ref=3038303333363139393031','mYBNEqNGKr','http://localhost/short/mYBNEqNGKr',0,1,301,1,1,1,1,1,1,1,'2021-11-06 17:15:34',NULL,'2021-11-06 17:15:34','2021-11-06 17:15:34'),(4,'https://equip.whitefieldfoundation.ng/register?ref=3038303535363333313130','G9MVwnez8X','http://localhost/short/G9MVwnez8X',0,1,301,1,1,1,1,1,1,1,'2021-11-12 15:26:18',NULL,'2021-11-12 15:26:18','2021-11-12 15:26:18'),(5,'https://equip.whitefieldfoundation.ng/register?ref=3038303535363333313130','GEYNg3NZO5','http://localhost/short/GEYNg3NZO5',0,1,301,1,1,1,1,1,1,1,'2021-11-12 15:27:11',NULL,'2021-11-12 15:27:11','2021-11-12 15:27:11'),(6,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','Q1zN2g47m6','http://localhost/short/Q1zN2g47m6',0,1,301,1,1,1,1,1,1,1,'2021-11-12 15:27:15',NULL,'2021-11-12 15:27:15','2021-11-12 15:27:15'),(7,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','WQRVdR43x5','http://localhost/short/WQRVdR43x5',0,1,301,1,1,1,1,1,1,1,'2021-11-12 19:12:18',NULL,'2021-11-12 19:12:18','2021-11-12 19:12:18'),(8,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','k3R4aneJOW','http://localhost/short/k3R4aneJOW',0,1,301,1,1,1,1,1,1,1,'2021-11-12 19:52:46',NULL,'2021-11-12 19:52:46','2021-11-12 19:52:46'),(9,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','d5pVJp4PMJ','http://localhost/short/d5pVJp4PMJ',0,1,301,1,1,1,1,1,1,1,'2021-11-12 20:07:55',NULL,'2021-11-12 20:07:55','2021-11-12 20:07:55'),(10,'http://equip.whitefieldfoundation.ng/register?ref=3038303333363139393031','Wb1V9O4gyE','http://localhost/short/Wb1V9O4gyE',0,1,301,1,1,1,1,1,1,1,'2021-11-13 08:13:17',NULL,'2021-11-13 08:13:17','2021-11-13 08:13:17'),(11,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','pWaVpgeD20','http://localhost/short/pWaVpgeD20',0,1,301,1,1,1,1,1,1,1,'2021-11-13 11:01:28',NULL,'2021-11-13 11:01:28','2021-11-13 11:01:28'),(12,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','GbMenKVgdy','http://localhost/short/GbMenKVgdy',0,1,301,1,1,1,1,1,1,1,'2021-11-13 14:32:13',NULL,'2021-11-13 14:32:13','2021-11-13 14:32:13'),(13,'https://equip.whitefieldfoundation.ng/register?ref=3038303635343330303537','kYx4LqenLG','http://localhost/short/kYx4LqenLG',0,1,301,1,1,1,1,1,1,1,'2021-11-13 14:40:13',NULL,'2021-11-13 14:40:13','2021-11-13 14:40:13'),(14,'https://equip.whitefieldfoundation.ng/register?ref=3038303635343330303537','lbxVmPev9D','http://localhost/short/lbxVmPev9D',0,1,301,1,1,1,1,1,1,1,'2021-11-13 14:41:41',NULL,'2021-11-13 14:41:41','2021-11-13 14:41:41'),(15,'https://equip.whitefieldfoundation.ng/register?ref=3038303635343330303537','ZAQV0MNg3v','http://localhost/short/ZAQV0MNg3v',0,1,301,1,1,1,1,1,1,1,'2021-11-13 14:42:11',NULL,'2021-11-13 14:42:11','2021-11-13 14:42:11'),(16,'https://equip.whitefieldfoundation.ng/register?ref=3038303635343330303537','pjY4Qre9MK','http://localhost/short/pjY4Qre9MK',0,1,301,1,1,1,1,1,1,1,'2021-11-13 14:43:28',NULL,'2021-11-13 14:43:28','2021-11-13 14:43:28'),(17,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','9mgeq1e5bP','http://localhost/short/9mgeq1e5bP',0,1,301,1,1,1,1,1,1,1,'2021-11-14 21:54:58',NULL,'2021-11-14 21:54:58','2021-11-14 21:54:58'),(18,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','Mx5V1BNdDW','http://localhost/short/Mx5V1BNdDW',0,1,301,1,1,1,1,1,1,1,'2021-11-15 10:23:56',NULL,'2021-11-15 10:23:56','2021-11-15 10:23:56'),(19,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','3AwVln4PG6','http://localhost/short/3AwVln4PG6',0,1,301,1,1,1,1,1,1,1,'2021-11-15 12:43:07',NULL,'2021-11-15 12:43:07','2021-11-15 12:43:07'),(20,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','gZPeRM4Y8z','http://localhost/short/gZPeRM4Y8z',0,1,301,1,1,1,1,1,1,1,'2021-11-15 13:25:10',NULL,'2021-11-15 13:25:10','2021-11-15 13:25:10'),(21,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','OkKVvmeEqG','http://localhost/short/OkKVvmeEqG',0,1,301,1,1,1,1,1,1,1,'2021-11-15 13:46:53',NULL,'2021-11-15 13:46:53','2021-11-15 13:46:53'),(22,'https://equip.whitefieldfoundation.ng/register?ref=3037303839313932313032','zYbe8xe5ly','http://localhost/short/zYbe8xe5ly',0,1,301,1,1,1,1,1,1,1,'2021-11-15 16:38:20',NULL,'2021-11-15 16:38:20','2021-11-15 16:38:20');
+/*!40000 ALTER TABLE `short_urls` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `teachers`
+--
+
+DROP TABLE IF EXISTS `teachers`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teachers` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `full_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rating` tinyint(4) NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facebook` text COLLATE utf8mb4_unicode_ci,
+  `instagram` text COLLATE utf8mb4_unicode_ci,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `teachers_slug_unique` (`slug`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teachers`
+--
+
+LOCK TABLES `teachers` WRITE;
+/*!40000 ALTER TABLE `teachers` DISABLE KEYS */;
+INSERT INTO `teachers` VALUES (21,'Certified Coach Trainer & CEO Whitefield Foundation','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1631369441/course-avatar/rjuzbihs8npdu2mii9wf.jpg','Funmi Johnson',5,'funmi-johnson',NULL,NULL,'Funmi is a certified International Financial Corporation (\"IFC\") trainer, an astute professional who consults and trains SMEs in Money Management.\r\n\r\n\r\nShe is Chief Executive Officer, Whitefield Foundation, a not-for-profit enterprise registered since 2003 that is passionately committed to poverty eradication through empowerment and education of women and youth in Africa. She has also been involved in several relief initiatives.\r\n\r\n\r\nFunmi has three kingdom books to her credit, \'Must I Submit?\' , \'The Secret Black Book Of Wealth\' and the best-selling \'The Secret Golden Book of Wealth for Couples\'.','2021-09-11 14:10:42','2021-09-20 14:01:09'),(22,'Non Governmental Organization','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632145516/course-avatar/mkqrbwogjhta72topobu.jpg','Whitefield Foundation',5,'whitefield-foundation',NULL,NULL,'Whitefield Foundation is a Non for profit organization passionately committed to poverty eradication through empowerment. \r\n\r\nOur E.Q.U.I.P empowerment program is set up to Educate, Quench, Upgrade, Illuminate, and Pivot participants.\r\n\r\nIt is 100% FREE with practical life and money making skills training delivered by professionals and experts in their chosen field.','2021-09-20 13:45:17','2021-09-20 14:01:30'),(23,'Human Resource -Thought Leader & Consultant','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632146649/course-avatar/dkgpp9l5mzk6livzf5np.jpg','Yemi Faseun',5,'yemi-faseun',NULL,NULL,'A business leader with almost 30 years multi-sector experience. In my current role, I have strategic responsibilities for the following business enabling functions:\r\n\r\nHuman Resources\r\nAdministration\r\nLegal\r\nCorporate Communications\r\nThe Training Academy\r\nThe Coaching Academy\r\n\r\nA two-term Elected Council Member of the Chartered Institute of Personnel Management (CIPM), recognised as Top 501 Most Fabulous Global HR Leader, Top 150 Global HR Influencer, Top 8 HR Thought Leader in Africa, Top 50 Personality on LinkedIn, Best Revenue Sales Supporting HR, Workbooth Top 50 Career Influencer, Tech Times Africa Top 3 Africa HR Influencer, PeopleHum Top 200 2021 Global Thought Leader.','2021-09-20 14:04:09','2021-09-20 14:04:09'),(24,'Organizational Development Expert','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632146963/course-avatar/pyr7lra52to0fnad4cdf.jpg','Funmi Oyefusi',5,'funmi-oyefusi',NULL,NULL,'Funmi  graduated with a Bachelors’ Degree in Agriculture (Plant Science) from Obafemi Awolowo University in 1992. She has a Masters’ degree in Global Human Resources from the University of Liverpool, United Kingdom and currently studying for her Doctor of Philosophy in Organizational and Human Development from the Atlantic International University, Hawaii USA.\r\n\r\n\r\nFunmi is a Human Resource and Organizational development practitioner, a full member of the Chartered Institute of Personnel Management (MCIPM) and a member of the Society for Human Resource Management, USA. \r\n\r\n\r\n\r\nFunmi is also an author. Her book ‘Out of the Depths’ is a fiction-styled autobiography.\r\n\r\n\r\nShe is presently the Director Organizational Effectiveness ActionAid Nigeria.','2021-09-20 14:09:23','2021-09-20 14:09:55'),(25,'Managing Director, Bank of Industry Nigeria','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632147281/course-avatar/mius15x7xj1sazboj2hh.jpg','Olukayode Pitan',5,'olukayode-pitan',NULL,NULL,'Mr. Pitan has corporate and banking experience spanning over 25 years. He graduated with a BSc (Hons) degree in Economics as a UAC scholar from the University of Ibadan in 1982.  He obtained a Master’s degree in International Management as a Rotary International Scholar from the American Graduate School of International Management, Thunderbird Campus, Glendale, Arizona. He is an alumnus of Lagos Business School (SMP 5) and London Business School (SEP 43 ). He is also an alumnus of the Haggai Institute in Singapore.  He is an ordained senior pastor of the Redeemed Christian Church of God.\r\n\r\n\r\nMr. Pitan joined First Interstate Bank Plc in August 2004 as Managing Director/Chief Executive Officer. He led the Bank successfully through a merger with eight other Banks to form Unity Bank Plc. From January 2006 to February 2009 when he voluntarily retired, he served as Executive Director of Unity Bank Plc in charge of Corporate Banking and Treasury Management.','2021-09-20 14:14:41','2021-09-20 14:14:41'),(26,'Lawyer, Singer, Artist & Trainer','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632147751/course-avatar/nfcyuxaflu9kie8k1e2q.jpg','Oyin Eva Johnson',5,'oyin-eva-johnson',NULL,NULL,'Oyin Eva Johnson is an experienced technology lawyer and multidisciplinary artist. She has a first class law degree from the University of Liverpool and a masters of law degree from the University of Cambridge, where her poetry has also been commended for addressing key social issues. \r\n\r\n\r\nOyin has advised Fortune 500 companies in various industries on complex multi- jurisdictional transactions worth up to US $1.5 billion. She also serves as an executive on the Nigerian Bar Association Section on Business Law ( ICT Committee) which organized the first Nigerian Technology Lawyers Forum, and as a Trustee, Megalios Information Technology Foundation. \r\n\r\n\r\nOyin is passionate about education, social reform, music, technology and strives to propagate these in her performance art. Her artistic side is curated in her debut album ‘From A Different Cloth’ \r\n\r\n\r\nConnect with Oyin via LinkedIn: www.linkedin.com/in/oyinjohnson/\r\nor email: oyindamola_johnson@yahoo.co.uk','2021-09-20 14:22:32','2021-09-20 15:25:57'),(27,'Food and Hospitality Business Expert Consultant','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632148809/course-avatar/e3vqijqyeeakzxhdyor9.jpg','Christy Fadipe',5,'christy-fadipe',NULL,NULL,'With over 21yrs management experience working with major continental and global food brands including UAC, Chicken Republic, Nandos South Africa, Innscor, Rationale Germany and Just Food West Africa.\r\n\r\nPresently she is the Chief Consulting Officer, Megaville Center Limited. \r\n\r\nShe has supported and worked for corporate organizations and entrepreneurs especially those in the food-service sector providing innovative and strategic solutions that can be replicated seamlessly throughout the business chain. \r\n\r\nShe has also formulated unique operational strategies and performance-enhancing tools that yield consistent service excellence, improve return on investments(ROI) and enhance consistent year on year results.','2021-09-20 14:40:09','2021-09-20 14:40:09'),(28,'Pharmacist & Certified Customer Service Trainer','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632150541/course-avatar/qflp2b6h5jhkofeu5mlk.png','Olufunto Olude',5,'olufunto-olude',NULL,NULL,'Olufunto is a trained pharmacist  with almost 2 decades of experience. She started out her career as a hospital pharmacist working in the private  sector before moving to the public sector.  With a desire to ensure client satisfaction she was led into pursuing a career in customer service delivery.\r\n\r\nShe has a Certificate Masters’ degree and a Diploma in Customer Service from Customer Service Training Institute, USA, as well as a Call Center Agent training from the same institute. She further proceeded to obtain a professional certification from the Service Quality Institute, USA, as a Certified Customer Service Professional. \r\n\r\n\r\nA Fellow of the West African Postgraduate  College of Pharmacists, she  is passionate  about the future generation of healthcare professionals, she runs a mentoring platform for young pharmacists called The Meeting Point Ng.','2021-09-20 15:09:01','2021-09-20 15:11:06'),(29,'Senior Database Analyst and Industry 4.0 Expert','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632151218/course-avatar/vwm6g8kq4crcsdsutqwv.jpg','Mike Onuorah',5,'mike-onuorah',NULL,NULL,'Michael Onuorah is a Senior Database Administrator, Database Architect and Project Manager that deploys enterprise Oracle, Microsoft SQL Server, MySql, MariaDB and IBM DB2 Databases to help businesses achieve Insights.\r\n\r\nHe has also leveraged Project Management, Enterprise Architecture and Six Sigma Skills to deploy highly available database systems and numerous technology projects that has helped client organizations deliver business value.\r\n\r\nHe is first and foremost a teacher, problem solver and a servant leader. What drives him in life is helping people to start their journey to self-discovery.','2021-09-20 15:20:19','2021-09-20 15:20:19'),(30,'Agricultural Information Broker, Coach and Consultant.','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632151518/course-avatar/efqvnxenr140fekliuas.jpg','African Farmer Mogaji',5,'african-farmer-mogaji',NULL,NULL,'Africanfarmer Mogaji is a second-generation agribusiness strategist, serial farmer, disruptor, facilitator, coach and mentor who has failed his way to success with over 23 years of local and international experience in livestock and crop production. \r\n\r\nHe resigned from Nigerians first digital agricultural platform FarmCrowdy Limited, a company he co-founded and served as Chief Operating Officer, to set up AgricBusiness Empowerment Initiative (AgricBusiness NG) an NGO focused on upgrading young graduates of agriculture and rural skills and competence. \r\n\r\nOne of the key aims of the initiative was to replace the \'aging\' farmers population in Africa, in addition, to support professionals from other sectors to sustainably leverage on untapped opportunities within the agribusiness value chain. \r\n\r\nAfricanfarmer is passionate about youth development, leveraging agriculture and food security initiatives to reduce employment, transform lives out of poverty, promote enterprise development among rural and urban farmers in Nigeria, and Africa at large.','2021-09-20 15:25:19','2021-09-20 15:25:38'),(31,'MSME Champion & Brand Communication Expert','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632151757/course-avatar/aoonzpbuctcbdehvsldc.jpg','Seye Olurotimi',5,'seye-olurotimi',NULL,NULL,'Seye is the founder of MSME Africa- a multifaceted resource platform for Micro, Small and Medium sized businesses in Africa. The platform provides capacity development, news, opportunities, articles and resources for MSMEs, Entrepreneurs and Startups. He is the convener of MSME Dialogue - an event for discussing and proffering solutions to issues that affect MSMEs and their operators. He emerged the winner of the Entrepreneur Africa Prize for Media Innovation 2021.\r\n\r\n\r\nSeye is also an International Partner, World Business Angel Investment Forum ( WBAF), an affiliated Partner of the G20 Global Partnership for Financial Inclusion (GPFI) and a member of the MSME Community of Practice of the Nigerian Economic Summit Group ( NESG).\r\n\r\n\r\nA renown SME Branding expert, Seye has developed a special interest in SME Branding which stems from his passion to help entrepreneurs grow effective brands through well-thought-out strategies and practices.','2021-09-20 15:29:17','2021-09-20 15:30:24'),(32,'Brand Strategist and Designer.','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632152640/course-avatar/yqeufxqhu785tazknq1y.jpg','Oyinkansola Karunwi',5,'oyinkansola-karunwi',NULL,NULL,'Oyinkan works with start-ups & established organisations to build beautiful brands powered by effective strategy.\r\n\r\nOyinkan discovered a love for design in university – where she designed under an alias that even her closest friends didn’t know about. She’s come a long way since then: moving home to Nigeria, rediscovering her love for branding and design, moonlighting as a corporate / business advisory lawyer at Nigeria’s largest law firm, and founding aseda in 2017. \r\n\r\nOyinkan loves exploring different industries through the lens of design and is passionate about building authentic brands backed by powerful strategy.','2021-09-20 15:44:00','2021-09-20 15:44:00'),(33,'Lawyer, Certified Customer Experience Professional','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632153076/course-avatar/gkvqbod8zutawb5qcivh.png','Sotonye Ehimiaghe',1,'sotonye-ehimiaghe',NULL,NULL,'Sotonye Ehimiaghe is a Lawyer, Certified Customer Experience Professional with the Customer Service Institute of America, Author and CEO Customer Service Hub Nigeria.\r\n\r\nShe holds Masters degrees in both International Commercial Law (LLM) and Fashion Business (MBA) from Cardiff University, UK and International Fashion Academy, Paris respectively. \r\n\r\nShe was called to the Nigerian Bar in 2015, is a certified Personal Stylist with Colour Me Beautiful (UK) and has been styling professionally since 2010. She is the Creative\r\nDirector of Didi Miaghé and author of Dream Wedding, Real Budget.\r\n\r\nSotonye is passionate about simplifying and teaching customer experience strategies that allow Nigerian businesses play in the fiercely competitive global market.','2021-09-20 15:51:16','2021-09-20 15:51:16'),(34,'Trainer, I.T & Digital Marketing Consultant','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632153995/course-avatar/eydzcod4i4ba0iwouxkm.jpg','Olutayo Olufemi-Fadipe',1,'olutayo-olufemi-fadipe',NULL,NULL,'Olutayo possesses over 20yrs professional experience in improving business growth through operations optimizations, integrating technologically enabled frameworks in the process frameworks, and communicating operations strategies to employees.\r\n\r\nExcellent digital skills combined with proficiency in operations of financial institutions. He Successfully set up, implemented and managed the overall company\'s digital marketing strategy for some corporate organizations. A big passion for digital technologies and utilizing different digital marketing channels.\r\n\r\nHe is passionate about helping young people gain clarity on difficult subjects and writing inspiring books.','2021-09-20 16:06:36','2021-09-20 16:06:36'),(35,'Risk & Assurance Professional','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632157276/course-avatar/nkdswlcpowbhdqnbqnqm.jpg','Jide Bamigbowu',5,'jide-bamigbowu',NULL,NULL,'Jide Bamigbowu is a risk and assurance professional with an academic background in applied economics and accounting. \r\n\r\nHe is an astute banker with over 17 years’ experience in the financial services industry. He has worked in various roles including Credit risk management, compliance, internal control, and business performance management across the major Banks in Nigeria. \r\n\r\nHe is currently an Assistant General Manager in one of the International Bank with a subsidiary in Nigeria. He is married and has two amazing boys. Jide is involved in orientation and counseling for young people especially in the areas of career and business. \r\n\r\nHe is passionate about helping people and businesses to chart the course to maximize their potential.','2021-09-20 17:01:16','2021-09-20 17:01:16'),(36,'Chartered Accountant, Trainer & Domestic Essentials Product Expert','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632158773/course-avatar/uotfxoo9xv60xj43ptir.png','Ibidunni Olabisi',5,'ibidunni-olabisi',NULL,NULL,'She is a Chartered Accountant who enjoys training and imparting knowledge.\r\n\r\nAs an entrepreneur, she produces domestic essential products as a solution for health and safety of families and small business owners.\r\n\r\nShe is passionate about youth empowerment and development.','2021-09-20 17:26:14','2021-09-20 17:26:14'),(37,'Chartered Accountant & Financial Consultant','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632220196/course-avatar/t5g36y28et87h6mitmp7.png','Michael Adesina',1,'michael-adesina',NULL,NULL,'Michael Adesina is a Fellow of ICAN, Associate member of CITN, Graduate member of CIS. Managing Partner of Michael Adesina & Co (Chartered Accountants)','2021-09-21 10:29:56','2021-09-21 10:29:56'),(38,'Legal Practitioner and Consultant','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632220414/course-avatar/lwb1gcoxmrv584ckxt7u.jpg','Lugard Agbomoagan',5,'lugard-agbomoagan',NULL,NULL,'Lugard AGBOMOAGAN is a Legal Practitioner and Consultant. He offers probono services to the indigents.','2021-09-21 10:33:34','2021-09-21 10:33:34'),(39,'Aromatherapist & Trainer','https://res.cloudinary.com/www-whitefieldfoundation-ng/image/upload/v1632220643/course-avatar/s5yx7ors1dl4t8k2izfm.jpg','Moji Dayo-Dunmoye',5,'moji-dayo-dunmoye',NULL,NULL,'Moji Dayo-Dunmoye is a focused business driver whose entrepreneurial instincts and clarity of vision have helped in building pioneer airport spa and an oil distillery farm in her birth home Nigeria.\r\n\r\nMoji started her first business, a wellness and beauty company at age 24 and has been an unstoppable force ever since. From makeup artistry, health and wellness, developing a branded travel and wellness product line, and then creating a distillery farm to reverse the commodity trap in Africa whilst promoting wellness.\r\n\r\nShe finds her greatest motivation in promoting preventive health care and encouraging people to rest and live well. She believes the extent to which the narrative of African will change depends on the commitment of her people to build the continent’s top tier businesses and create jobs for her growing\r\npopulation.','2021-09-21 10:37:24','2021-09-21 10:37:24');
+/*!40000 ALTER TABLE `teachers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `teams`
+--
+
+DROP TABLE IF EXISTS `teams`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `teams` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `teams_name_unique` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `teams`
+--
+
+LOCK TABLES `teams` WRITE;
+/*!40000 ALTER TABLE `teams` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teams` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `users` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bio` text COLLATE utf8mb4_unicode_ci,
+  `age_range` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `employment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `local_govt` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `gender` enum('Male','Female') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `referred_by` bigint(20) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`),
+  UNIQUE KEY `users_phone_number_unique` (`phone_number`),
+  KEY `users_referred_by_foreign` (`referred_by`),
+  CONSTRAINT `users_referred_by_foreign` FOREIGN KEY (`referred_by`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (21,'Adewale','Olagunju','olagunjuadewale5@gmail.com','08033619901','2021-09-09 05:43:14','$2y$10$aSGH3r3kceCuDBSHTZfJGumMRSqq.x78WJe1tQPrZ6.s1bivPTbMm','d','18 - 24yrs','Unemployed','d','d','d','d','8bG2dYcUF34I1r8511bvU078sqZtMkrYDO4BrMwaW8N1Jk5fmDkZrX8aFrr6','2021-09-09 05:42:41','2021-09-11 10:20:37','Male',NULL),(22,'OLUTAYO','Fadipe','tayo.fadipe@whitefieldfoundation.ng','07089192102','2021-09-11 14:05:29','$2y$10$ACY5snMh2dJYnvnD6.t.IuAVPd8dihmGr2czGCTy0A9DgyOp953Qu',NULL,'45 - 49yrs','Business Owner','3 Igbobi College Access Road, Igbobi, Yaba',NULL,'Lagos State','Shomolu','BfM9oI67b5siQ2AIWIBMv8WiWFlbPpcMffSkkKdLPHrNdtUvWSonDVV5yCgf','2021-09-11 14:04:49','2021-10-07 12:29:10','Male',NULL),(32,'Whitefield','Program Coordinator','info@whitefieldfoundation.ng','09057540000','2021-10-02 14:42:07','$2y$10$Pw7JGGTivTm/D.seOiir3eqIqLaOYCQ2FHUoQ5MV2LMHdHoYcYfc2',NULL,'30 - 34yrs','Business Owner','25, McEwen Street, Off Herbert Macaulay Street, Sabo-Alagomeji,Yaba, Lagos',NULL,'Lagos State','Yaba, Lagos Mainland',NULL,'2021-10-02 14:41:28','2021-10-02 14:43:02','Male',NULL),(33,'Tayo','Olufemi','tayo.fadipe@thecapstoneonline.com','070891210','2021-10-10 18:39:45','$2y$10$qhcaPEB.DrvzsH.SrK0Xc.LsijIEpA3z0XwBBkDLCTXHFdG72ua1O',NULL,'25 - 29yrs','Business Owner','25, McEwen Street, Off Herbert Macaulay Street, Sabo-Alagomeji,Yaba, Lagos',NULL,'Lagos State','Yaba',NULL,'2021-10-10 18:37:59','2021-10-10 18:43:36','Male',NULL),(34,'Beulah','Johnson','beulahtoks@thecapstoneonline.com','08023032890','2021-10-10 18:58:54','$2y$10$pmPrT5gQdkhP4ULW4PpsfOvEvJ9ZgOCNyLpQQJapBlyrbDV0Mg0vC',NULL,'55 - 59yrs','Business Owner','25 McEwen Street, Sabo Alagomeji',NULL,'Lagos State','Lagos Mainland Local Govt.',NULL,'2021-10-10 18:55:20','2021-10-10 19:03:23','Male',NULL),(37,'Peju','Ibekwe','Pejuibekwe@gmail.com','08055633110','2021-11-12 15:26:18','$2y$10$zmmbyTiBRVJRwdSuDeFY0evhEq9BzhjtqpIpJ5aIhKPfN/4TwoHoy',NULL,'40 - 44yrs','Employed','20','Marina','Lagos State','Kosofe',NULL,'2021-11-12 15:25:51','2021-11-12 15:28:19','Female',NULL),(38,'Halima','Baba','halima.baba@sterling.ng','08062883971',NULL,'$2y$10$BVLP8dfDIU/OwH/n3zf4PuhuwSJx2Gnt3n2dFbboomBW36haP74GG',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2021-11-12 15:30:06','2021-11-12 15:30:06',NULL,NULL),(40,'Emeka','Aminu Oluwaseun','olutayo.fadipe@gmail.com','08065430057','2021-11-13 14:40:12','$2y$10$PpWDMLSPkzxuCQIkw7vBtu64lW/f2WiWtfAhxQvUqn.e9JGT7poHq','I am a very determined and well focused individual','30 - 34yrs','Unemployed','25 McEwen Street, Yaba,',NULL,'Lagos State','Yaba LCDA',NULL,'2021-11-13 14:37:49','2021-11-13 14:41:23','Male',NULL),(42,'Funmi','Johnson','funmijohnson@yahoo.com','08050360000',NULL,'$2y$10$CeKM7ADOeiA5CZRmmhKCAueLVLojmstUiHazRa4qIHHPiiwp0VFTO',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2021-11-15 13:54:58','2021-11-15 13:54:58',NULL,NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-11-15 17:22:47
