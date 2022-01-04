@@ -1,4 +1,4 @@
-<div class="bg-dark border-top-2 mt-auto">
+<div class="bg-dark border-top-2 mt-auto" style="z-index: -12">
     <div class="container page__container page-section d-flex flex-column">
         <p class="text-white-70 brand mb-24pt">
             <span class="avatar avatar-sm navbar-brand-icon mr-0 mr-lg-8pt" style="width: 190px">
