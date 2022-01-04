@@ -104,6 +104,12 @@
                                                         <span class="text-muted">{{ $data->duration }}</span>
                                                     </li>
                                                 @endforeach
+                                                <li class="accordion__menu-link">
+                                                    <span
+                                                        class="material-icons icon-16pt icon--left text-body">check_circle</span>
+                                                    <a class="flex"
+                                                        href="{{ route('quiz.start', [$course, $item->id] ) }}">Quiz</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>

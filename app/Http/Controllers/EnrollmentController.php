@@ -51,8 +51,9 @@ class EnrollmentController extends Controller
         $exist = Enrollment::where(['student' => $user->id, 'course' => $id])->first();
 
         // dd($id);
+        // $id !== "1"
 
-        if ($id !== "1") {
+        if (true) {
                 $message = "This course has not yet started";
                 return redirect()->back()->with(session()->flash('alert-danger', $message));
         } else {

@@ -12,7 +12,7 @@ class CourseQuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($section, $course)
+    public function index($course, $section)
     {
         // dd($course, $section);
         $question = CourseQuestion::where(['section' => $section, 'course' => $course])->get();
@@ -35,7 +35,7 @@ class CourseQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $section, $course)
+    public function store(Request $request, $course, $section)
     {
         $message = 'Ops, Something went wrong!!';
         $validated_data = $request->validate([
@@ -74,9 +74,26 @@ class CourseQuestionController extends Controller
      * @param  \App\Models\CourseQuestion  $courseQuestion
      * @return \Illuminate\Http\Response
      */
-    public function show(CourseQuestion $courseQuestion)
+    public function show(Request $request, $course, $section)
     {
-        //
+        $user = $request->user();
+        $question = CourseQuestion::where(['section' => $section, 'course' => $course])->get();
+        dd($course, $section, $question);
+        return view('school.course.submitQuestion');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\CourseQuestion  $courseQuestion
+     * @return \Illuminate\Http\Response
+     */
+    public function start(Request $request, $course, $section)
+    {
+        $user = $request->user();
+        $question = CourseQuestion::where(['section' => $section, 'course' => $course])->get();
+        // dd($course, $section, $question);
+        return view('school.course.submitQuestion', compact('course', 'section', 'question'));
     }
 
     /**

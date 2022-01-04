@@ -41,6 +41,7 @@ Route::resource('course-section', CourseSectionController::class);
 Route::post('course-section/{id}', [CourseSectionController::class, 'store'])->name('section.add');
 Route::patch('course-section/{id}', [CourseSectionController::class, 'update'])->name('section.update');
 Route::resource('quiz.section.question', CourseQuestionController::class );
+Route::get('quiz/{section}/course/{course}', [CourseQuestionController::class, 'start' ])->name('quiz.start');
 Route::resource('course-lesson', SectionlessonController::class);
 Route::post('course-lesson/{id}', [SectionlessonController::class, 'store'])->name('lesson.add');
 Route::resource('enrollment', EnrollmentController::class);
