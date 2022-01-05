@@ -17,18 +17,18 @@
                 <div class="d-flex flex-column flex-lg-row align-items-center">
                     <div
                         class="d-flex flex-column flex-md-row align-items-center flex mb-16pt mb-lg-0 text-center text-md-left">
-                        <div class="avatar avatar mb-16pt mb-md-0 mr-md-16pt">
+                        {{-- <div class="avatar avatar mb-16pt mb-md-0 mr-md-16pt">
                             <img src="{{ $course->thumbnail }}" class="avatar-img rounded" alt="lesson">
-                        </div>
+                        </div> --}}
                         <div class="flex">
                             <h1 class="h2 m-0">{{ $course->title }}</h1>
-                            <div class="rating mb-8pt d-inline-flex">
+                            {{-- <div class="rating mb-8pt d-inline-flex">
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star_border</i></div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -99,10 +99,12 @@
                                                         <span class="text-muted">{{ $data->duration }}</span>
                                                     </li>
                                                 @endforeach
+                                                @if (HasTakenQuiz($item->id, Auth::user() ))
                                                 <li class="accordion__menu-link">
                                                     <span class="material-icons icon-16pt icon--left text-body">check_circle</span>
                                                     <a class="flex" href="{{ route('quiz.start', [$course, $item->id] ) }}">Quiz</a>
                                                 </li>
+                                                @endIf
                                             </ul>
                                         </div>
                                     </li>
@@ -279,7 +281,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="rating mb-8pt">
+                                    {{-- {{-- <div class="rating mb-8pt">
                                         <span class="rating__item"><span
                                                 class="material-icons">@if ($item->rating >= 1){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
                                         <span class="rating__item"><span
@@ -290,7 +292,7 @@
                                                 class="material-icons">@if ($item->rating >= 4){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
                                         <span class="rating__item"><span
                                                 class="material-icons">@if ($item->rating >= 5){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
-                                    </div>
+                                    </div> --}} --}}
                                     <p class="text-70 mb-0">{{ $item->comments }}</p>
                                 </div>
                             </div>
@@ -306,10 +308,10 @@
                         </div>
 
                         <div class="media align-items-center mb-16pt">
-                            <span class="media-left mr-16pt">
+                            {{-- <span class="media-left mr-16pt">
                                 <img src="{{ $course->author_id->avatar }}" width="40" alt="avatar"
                                     class="rounded-circle">
-                            </span>
+                            </span> --}}
                             <div class="media-body">
                                 <a class="card-title m-0" href="teacher-profile.html">{{ $course->author_id->full_name }}</a>
                                 <p class="text-50 lh-1 mb-0">Instructor</p>
@@ -441,13 +443,13 @@
                             <div class="media-body media-middle">
                                 <a href="."
                                     class="card-title">{{ __("Ejibe L. Abia State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}} 
                             </div>
                         </div>
     
@@ -471,13 +473,13 @@
                             <div class="media-body media-middle">
                                 <a href="."
                                     class="card-title">{{__("SAiDU ABDULLAHI Borno State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     
@@ -501,13 +503,13 @@
                             <div class="media-body media-middle">
                                 <a href="."
                                     class="card-title">{{__("Grace U, Lagos State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     

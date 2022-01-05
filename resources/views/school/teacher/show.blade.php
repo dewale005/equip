@@ -15,7 +15,7 @@
                         </div>
                         <div class="flex">
                             <h1 class="h2 mb-0">{{ $teacher->full_name }}</h1>
-                            <div class="rating mb-16pt d-inline-flex">
+                            {{-- <div class="rating mb-16pt d-inline-flex">
                                 <span class="rating__item"><span
                                         class="material-icons">@if ($teacher->rating >= 1){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
 
@@ -30,7 +30,7 @@
 
                                 <span class="rating__item"><span
                                         class="material-icons">@if ($teacher->rating >= 5){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     {{-- <div class="ml-lg-16pt">

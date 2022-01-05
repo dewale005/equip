@@ -32,10 +32,10 @@
 
                     </div>
                     {!! Form::open([
-                        'route' => 'export.excel',
-                        'method' => 'get',
-                        'role' => 'form',
-                    ]) !!}
+    'route' => 'export.excel',
+    'method' => 'get',
+    'role' => 'form',
+]) !!}
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
@@ -61,66 +61,77 @@
                             </div>
                         </div>
 
-                            {{ Form::label(' ', null, ['class' => 'form-label']) }}
-                            {!! Form::submit('Download', ['class' => 'btn btn-primary', 'style' => 'height: 36px; margin-top: 29px;']) !!}
-                
-                    {!! Form::close() !!}
+                        {{ Form::label(' ', null, ['class' => 'form-label']) }}
+                        {!! Form::submit('Download', ['class' => 'btn btn-primary', 'style' => 'height: 36px; margin-top: 29px;']) !!}
+
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="page-section container page__container">
+                {!! Form::open(['route' => 'import.excel', 'novalidate' => 'novalidate', 'files' => true ]) !!}
+
+                <div class="form-group">
+                    <h3>CSV Users Import</h3>
+                    {!! Form::file('upload_file', null, ['class' => 'file']) !!}
                 </div>
 
-            </div>
-        </div>
+                <div class="form-group">
+                    {!! Form::submit('Upload Users', ['class' => 'btn btn-success']) !!}
+                </div>
+                {!! Form::close() !!}
+                <div class="page-separator">
+                    <div class="page-separator__text">Registration History</div>
+                </div>
 
-        <div class="page-section container page__container">
-            <div class="page-separator">
-                <div class="page-separator__text">Registration History</div>
-            </div>
-
-            <div class="card table-responsive">
-                <table class="table table-flush table-nowrap">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone Number</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>State</th>
-                            <th>Employment Status</th>
-                            <th>Number Reffered</th>
-                            <th>Date Joined</th>
-                            <th>Action</th>
-                            {{-- <th class="text-center">Amount</th>
-                        <th></th> --}}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($user as $item)
+                <div class="card table-responsive">
+                    <table class="table table-flush table-nowrap">
+                        <thead>
                             <tr>
-                                <td style="color: @if ($item->email_verified_at != null) green @else red @endif ">{{ $item->first_name }}
-                                    {{ $item->last_name }}</td>
-                                <td>{{ $item->email }}</td>
-                                <td>{{ $item->phone_number }}</td>
-                                <td>{{ $item->age_range }}</td>
-                                <td>{{ $item->gender }}</td>
-                                <td>{{ $item->state }}</td>
-                                <td>{{ $item->employment }}</td>
-                                <td>{{ $item->referrals->count() }}</td>
-                                <td>{{ $item->created_at }}</td>
-                                <td>
-                                    {!! Form::open(['route' => ['user.destroy', $item->id], 'method' => 'delete']) !!}
-                                    {!! Form::submit('delete', ['class' => 'btn btn-outline-danger mb-24pt mb-sm-0']) !!}
-                                    {!! Form::close() !!}
-                                </td>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                                <th>State</th>
+                                <th>Employment Status</th>
+                                <th>Number Reffered</th>
+                                <th>Date Joined</th>
+                                <th>Action</th>
+                                {{-- <th class="text-center">Amount</th>
+                        <th></th> --}}
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            @foreach ($user as $item)
+                                <tr>
+                                    <td style="color: @if ($item->email_verified_at != null) green @else red @endif ">{{ $item->first_name }}
+                                        {{ $item->last_name }}</td>
+                                    <td>{{ $item->email }}</td>
+                                    <td>{{ $item->phone_number }}</td>
+                                    <td>{{ $item->age_range }}</td>
+                                    <td>{{ $item->gender }}</td>
+                                    <td>{{ $item->state }}</td>
+                                    <td>{{ $item->employment }}</td>
+                                    <td>{{ $item->referrals->count() }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>
+                                        {!! Form::open(['route' => ['user.destroy', $item->id], 'method' => 'delete']) !!}
+                                        {!! Form::submit('delete', ['class' => 'btn btn-outline-danger mb-24pt mb-sm-0']) !!}
+                                        {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                <ul class="pagination justify-content-start pagination-xsm m-0">
+                    {!! $user->links('pagination::bootstrap-4') !!}
+                </ul>
             </div>
-            <ul class="pagination justify-content-start pagination-xsm m-0">
-                     {!! $user->links("pagination::bootstrap-4") !!}
-            </ul>
         </div>
-    </div>
-    <!-- // END Header Layout Content -->
+        <!-- // END Header Layout Content -->
 
-@endsection
+    @endsection

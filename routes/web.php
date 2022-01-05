@@ -53,6 +53,7 @@ Route::post('enrollment/{id}', [EnrollmentController::class, 'store'])->name('en
 Route::get('enrollment/{id}/lesson', [EnrollmentController::class, 'index'])->name('enrollment.lesson');
 Route::get('enrollment-lesson/{id}', [SectionlessonController::class, 'index'])->name('lesson.start');
 Route::get('export-excel',[UserController::class, 'export'])->name('export.excel');
+Route::post('import-excel',[UserController::class, 'import'])->name('import.excel');
 Route::get('lang/{lang}',[LanguageController::class, 'switchLang'])->name('lang.switch');
 // Route::resource('user', UserController::class, [ 
 //     'only' => ['update', 'edit', 'destroy'],

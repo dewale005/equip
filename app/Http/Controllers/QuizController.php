@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourseQuestion;
 use App\Models\Quiz;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class QuizController extends Controller
@@ -35,7 +37,31 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $user = $request->user();
+        $point = User::where(['id' => $user->id])->first();
+        $course = Quiz::where(['user' => $user->id, 'lesson' => $request->section])->first();
+        if ($course != null) {
+            return redirect()->route('home');
+        } 
+        $question = CourseQuestion::where(['section' => $request->section, 'course' => $request->course])->get();
+        $totalScore = 0;
+        for ($x = 0; $x < $question->count(); $x++) {
+            $int = $x + 1;
+            $option = "answer$int";
+            if ($request->$option == $question[$x]->answer) {
+                $totalScore += (int) $question[$x]->total_score;
+            }
+        }
+        $initalScore = $point->points;
+        $point->points = $initalScore + $totalScore;
+        $point->save();
+        Quiz::create([
+            "user" => $user->id,
+            "lesson" => $request->section,
+            "points" => $totalScore,
+        ]);
+        return redirect()->route('home');
+        
     }
 
     /**

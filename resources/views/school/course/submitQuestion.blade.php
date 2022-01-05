@@ -18,7 +18,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    {!! Form::open(['route' => ['scoring.store', $section], 'method' => 'post',]) !!}
+                                    {!! Form::open(['route' => ['scoring.store'], 'method' => 'post',]) !!}
                                     @foreach ($question as $data)
                                         <div class="form-group">
                                             <p>
@@ -46,6 +46,8 @@
                                         </div>
 
                                     @endforeach
+                                    {{ Form::hidden('section', $section ) }}
+                                    {{ Form::hidden('course', $course ) }}
                                     {!! Form::submit('Submit', ['class' => 'btn btn-primary mb-24pt mb-sm-0']) !!}
                                     {!! Form::close() !!}
                                 </div>

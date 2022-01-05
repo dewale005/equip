@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
@@ -151,5 +152,63 @@ class UserController extends Controller
         fclose($file);
     };
     return Response::stream($callback, 200, $headers);
+}
+
+public function import(Request $request)
+{
+   $file = $request->file('upload_file');
+   $name = $file->getClientOriginalName();
+   $extension = $file->getClientOriginalExtension();
+   $tempPath = $file->getRealPath();
+   $fileSize = $file->getSize();
+
+   $location = 'uploads';
+
+   $file->move($location, $name);
+
+   $filepath = public_path($location . "/" . $name);
+//    $file = fopen($filepath, 'r');/
+
+   $customerArr = $this->csvToArray($filepath);
+
+//    dd($customerArr);
+
+    for ($i = 0; $i < count($customerArr); $i ++)
+    {
+        User::firstOrCreate($customerArr[$i]);
+    }
+   
+   
+    return redirect()->back();
+
+}
+
+
+function csvToArray($filename = '', $delimiter = ',')
+{
+    if (!file_exists($filename) || !is_readable($filename))
+    {
+        return false;
+    }
+
+    $header = null;
+    $columns = array('first_name', 'last_name', 'email', 'password', 'phone_number', 'gender', 'state', 'age_range', 'created_at');
+    $data = array();
+    if (($handle = fopen($filename, 'r')) !== false)
+    {
+        while (($row = fgetcsv($handle, 1000, $delimiter)) !== false)
+        {
+            if (!$header)
+                $header = $row;
+            else
+                // dd($header);
+                // dd($header);
+                // dd(array_combine([$row, $row));
+                $data[] = array_combine($columns, $row);
+        }
+        fclose($handle);
+    }
+
+    return $data;
 }
 }

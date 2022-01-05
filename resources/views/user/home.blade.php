@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="ml-lg-16pt">
-                        <a href="{{ route('editprofile') }}" class="btn btn-light">My Profile</a>
+                        <a href="{{ route('course.index')  }}" class="btn btn-light">Courses</a>
                     </div>
                 </div>
 
@@ -43,7 +43,7 @@
 
                                 <div class="card card-group-row__card">
                                     <div class="card-header d-flex align-items-center">
-                                        <div class="h2 mb-0 mr-3">{{ $user->score }}</div>
+                                        <div class="h2 mb-0 mr-3">{{ $user->points }}</div>
                                         <div class="flex">
                                             <p class="card-title">Point</p>
                                             <p class="card-subtitle text-50">Total Points on refferals</p>

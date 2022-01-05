@@ -13,12 +13,12 @@
                         <h1 class="h2 mb-4pt">Courses</h1>
                         <div class="lead measure-lead text-70">Follow through the courses from level one.</div>
                     </div>
-                    <div class="ml-lg-16pt">
+                    {{-- <div class="ml-lg-16pt">
                         <a href="#" data-target="#library-drawer" data-toggle="sidebar" class="btn btn-light">
                             <i class="material-icons icon--left">tune</i> Filters
                             <span class="badge badge-notifications badge-accent icon--right">2</span>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-12">
 
-                        <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt"
+                        {{-- <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt"
                             style="white-space: nowrap;">
                             <small class="flex text-muted text-headings text-uppercase mr-3 mb-2 mb-sm-0">Displaying 4 out
                                 of 10 courses</small>
@@ -44,7 +44,7 @@
 
                             </div>
 
-                        </div>
+                        </div> --}}
 
                         <div class="page-separator">
                             <div class="page-separator__text">Popular Courses</div>
@@ -80,7 +80,7 @@
                                                     class="ml-4pt material-icons text-20 card-course__icon-favorite">favorite_border</a>
                                             </div>
                                             <div class="d-flex">
-                                                <div class="rating flex">
+                                                {{-- <div class="rating flex">
                                                     <span class="rating__item"><span
                                                             class="material-icons">@if ($item->rating->average('rating') >= 1){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
                                                     <span class="rating__item"><span
@@ -91,7 +91,7 @@
                                                             class="material-icons">@if ($item->rating->average('rating') >= 4){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
                                                     <span class="rating__item"><span
                                                             class="material-icons">@if ($item->rating->average('rating') >= 5){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
-                                                </div>
+                                                </div> --}}
                                                 <!-- <small class="text-50">6 hours</small> -->
                                             </div>
                                         </div>
@@ -113,10 +113,10 @@
                                     </div>
                                     <div class="popoverContainer d-none">
                                         <div class="media">
-                                            <div class="media-left mr-12pt">
+                                            {{-- <div class="media-left mr-12pt">
                                                 <img src="{{ URL::to('/images/'.$item->author_id->avatar) }}" width="40" height="40"
                                                     alt="Angular" class="rounded">
-                                            </div>
+                                            </div> --}}
                                             <div class="media-body">
                                                 <div class="card-title mb-0">{{ $item->title }}</div>
                                                 <p class="lh-1 mb-0">
@@ -159,7 +159,7 @@
                                             </div>
                                             <div class="col text-right">
                                                 <a href="{{ route('course.show', $item->slug) }}"
-                                                    class="btn btn-primary">Watch trailer</a>
+                                                    class="btn btn-primary">View Course</a>
                                             </div>
                                         </div>
 
@@ -242,13 +242,13 @@
                             </div>
                             <div class="media-body media-middle">
                                 <a href="student-profile.html" class="card-title">{{ __('Ejibe L. Abia State') }}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 
@@ -273,13 +273,13 @@
                             <div class="media-body media-middle">
                                 <a href="student-profile.html"
                                     class="card-title">{{ __('SAiDU ABDULLAHI Borno State') }}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 
@@ -303,13 +303,13 @@
                             </div>
                             <div class="media-body media-middle">
                                 <a href="student-profile.html" class="card-title">{{ __('Grace U, Lagos State') }}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 

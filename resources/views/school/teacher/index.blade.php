@@ -12,7 +12,7 @@
                     <h1 class="h2 m-0">Teachers</h1>
                     <div class="lead measure-lead text-70">Learn from the best industry experts in Business and Technology.</div>
                 </div>
-                <div class="ml-lg-16pt">
+                {{-- <div class="ml-lg-16pt">
                     <a href="#"
                        data-target="#library-drawer"
                        data-toggle="sidebar"
@@ -20,7 +20,7 @@
                         <i class="material-icons icon--left">tune</i> Filters
                         <span class="badge badge-notifications badge-accent icon--right">2</span>
                     </a>
-                </div>
+                </div> --}}
             </div>
 
         </div>
@@ -29,7 +29,7 @@
     <div class="page-section border-bottom-2">
         <div class="container page__container">
 
-            <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt"
+            {{-- <div class="d-flex flex-column flex-sm-row align-items-sm-center mb-24pt"
                  style="white-space: nowrap;">
                 <small class="flex text-muted text-headings text-uppercase mr-3 mb-2 mb-sm-0">Displaying 4 out of 10 teachers</small>
                 <div class="w-auto ml-sm-auto table d-flex align-items-center mb-2 mb-sm-0">
@@ -50,7 +50,7 @@
                     <i class="material-icons icon--left">tune</i> Filters
                 </a>
 
-            </div>
+            </div> --}}
 
             <div class="page-separator">
                 <div class="page-separator__text">Top Teachers</div>
@@ -63,22 +63,22 @@
                         <div class="card-header d-flex align-items-center">
                             <a href="{{ route('teachers.show', $item->slug) }}"
                                class="card-title flex mr-12pt">{{ $item->full_name }}</a>
-                            <a href="{{ route('teachers.show', $item->slug) }}"
+                            {{-- <a href="{{ route('teachers.show', $item->slug) }}"
                                class="btn btn-light btn-sm"
                                data-toggle="tooltip"
                                data-title="Unfollow"
-                               data-placement="bottom">Following</a>
+                               data-placement="bottom">Following</a> --}}
                         </div>
                         <div class="card-body flex text-center d-flex flex-column align-items-center justify-content-center">
-                            <a href="{{ route('teachers.show', $item->slug) }}"
+                            {{-- <a href="{{ route('teachers.show', $item->slug) }}"
                                class="avatar avatar-xl overlay js-overlay overlay--primary rounded-circle p-relative o-hidden mb-16pt">
                                 <img src="{{ URL::to('/images/'.$item->avatar) }}"
                                      alt="teacher"
                                      class="avatar-img">
                                 <span class="overlay__content"><i class="overlay__action material-icons icon-40pt">face</i></span>
-                            </a>
+                            </a> --}}
                             <div class="flex">
-                                <div class="d-inline-flex align-items-center mb-8pt">
+                                {{-- <div class="d-inline-flex align-items-center mb-8pt">
                                     <div class="rating mr-8pt">
 
                                         <span class="rating__item"><span class="material-icons">@if( $item->rating >= 1){{"star"}}@else{{'star_border'}}@endif</span></span>
@@ -93,9 +93,9 @@
 
                                     </div>
                                     <small class="text-muted">{{ $item->rating }}/5</small>
-                                </div>
+                                </div> --}}
 
-                                <p class="text-70 measure-paragraph">{{ $item->description}}</p>
+                                <p class="text-70 measure-paragraph"  style="padding: 10px; text-align: justify;">{{ $item->description}}</p>
 
                                 <a href="javascript:void()"
                                    data-toggle="tooltip"

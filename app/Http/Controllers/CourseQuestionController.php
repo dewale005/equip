@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CourseQuestion;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
 
 class CourseQuestionController extends Controller
@@ -92,8 +93,13 @@ class CourseQuestionController extends Controller
     {
         $user = $request->user();
         $question = CourseQuestion::where(['section' => $section, 'course' => $course])->get();
+        $quiz = Quiz::where(['user' => $user->id, 'lesson' => $section])->first();
         // dd($course, $section, $question);
-        return view('school.course.submitQuestion', compact('course', 'section', 'question'));
+        if ($quiz == null) {
+            return view('school.course.submitQuestion', compact('course', 'section', 'question'));
+        } else {
+            return redirect()->route('home');
+        }
     }
 
     /**

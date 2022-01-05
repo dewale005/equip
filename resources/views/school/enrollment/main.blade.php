@@ -148,13 +148,13 @@
                             <div class="media-body media-middle">
                                 <a href="."
                                     class="card-title">{{ __("Ejibe L. Abia State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     
@@ -178,13 +178,13 @@
                             <div class="media-body media-middle">
                                 <a href="."
                                     class="card-title">{{__("SAiDU ABDULLAHI Borno State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     
@@ -207,13 +207,13 @@
                             </div>
                             <div class="media-body media-middle">
                                 <a href="." class="card-title">{{__("Grace U, Lagos State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     

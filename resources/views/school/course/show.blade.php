@@ -16,19 +16,19 @@
                 <div class="d-flex flex-column flex-lg-row align-items-center">
                     <div
                         class="d-flex flex-column flex-md-row align-items-center flex mb-16pt mb-lg-0 text-center text-md-left">
-                        <div class="avatar avatar mb-16pt mb-md-0 mr-md-16pt">
+                        {{-- <div class="avatar avatar mb-16pt mb-md-0 mr-md-16pt">
                             <img src="{{ $course->thumbnail }}" class="avatar-img rounded" alt="lesson">
-                        </div>
+                        </div> --}}
                         <div class="flex">
                             <h1 class="h2 m-0">{{ $course->title }}</h1>
-                            <div class="rating mb-8pt d-inline-flex">
+                            {{-- <div class="rating mb-8pt d-inline-flex">
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star</i></div>
                                 <div class="rating__item"><i class="material-icons">star_border</i></div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     {{-- <div class="ml-lg-16pt">
                         <a href="." class="btn btn-light">Library</a>
@@ -43,29 +43,6 @@
 
                 <div class="row">
                     <div class="col-lg-8">
-
-                        <div class="js-player card bg-primary text-center embed-responsive embed-responsive-16by9 mb-24pt">
-                            <div class="player embed-responsive-item">
-                                <div class="player__content align-items-center justify-content-center">
-                                    {{-- <p class="lead text-white-70 measure-lead">It’s not every day that one of the most
-                                        important front-end libraries in web development gets a complete overhaul. Keep your
-                                        skills relevant and up-to-date with this comprehensive introduction to Google’s
-                                        popular community project.</p> --}}
-
-                                    <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center">
-                                        <a href="student-lesson.html" class="btn btn-outline-white">Watch trailer <i
-                                                class="material-icons icon--right">play_circle_outline</i></a>
-                                    </div>
-                                </div>
-                                <div class="player__embed d-none">
-                                    <iframe
-                                        src="{{ $course->trailler_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;h=cf300c057c"
-                                        frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
-                                        style="position:absolute;top:0;left:0;width:100%;height:100%;"
-                                        title="Welcome Address &amp;amp; Personality Test"></iframe>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="mb-24pt">
                             <span class="chip chip-outline-secondary d-inline-flex align-items-center">
@@ -246,7 +223,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-9">
-                                    <div class="rating mb-8pt">
+                                    {{-- <div class="rating mb-8pt">
                                         <span class="rating__item"><span
                                                 class="material-icons">@if ($item->rating >= 1){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
                                         <span class="rating__item"><span
@@ -257,7 +234,7 @@
                                                 class="material-icons">@if ($item->rating >= 4){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
                                         <span class="rating__item"><span
                                                 class="material-icons">@if ($item->rating >= 5){{ 'star' }}@else{{ 'star_border' }}@endif</span></span>
-                                    </div>
+                                    </div> --}}
                                     <p class="text-70 mb-0">{{ $item->comments }}</p>
                                 </div>
                             </div>
@@ -298,10 +275,10 @@
                         </div>
 
                         <div class="media align-items-center mb-16pt">
-                            <span class="media-left mr-16pt">
+                            {{-- <span class="media-left mr-16pt">
                                 <img src="{{ $course->author_id->avatar }}" width="40" alt="avatar"
                                     class="rounded-circle">
-                            </span>
+                            </span> --}}
                             <div class="media-body">
                                 <a class="card-title m-0"
                                     href="teacher-profile.html">{{ $course->author_id->full_name }}</a>
@@ -310,7 +287,7 @@
                         </div>
                         <p class="text-70">{{ $course->author_id->description }}</p>
 
-                        <a href="teacher-profile.html" class="btn btn-white mb-24pt">Follow</a>
+                        {{-- <a href="teacher-profile.html" class="btn btn-white mb-24pt">Follow</a> --}}
 
                         {{-- <div class="page-separator">
                             <div class="page-separator__text">Recommended</div>
@@ -434,13 +411,13 @@
                             <div class="media-body media-middle">
                                 <a href="student-profile.html"
                                     class="card-title">{{ __("Ejibe L. Abia State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     
@@ -464,13 +441,13 @@
                             <div class="media-body media-middle">
                                 <a href="student-profile.html"
                                     class="card-title">{{__("SAiDU ABDULLAHI Borno State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     
@@ -494,13 +471,13 @@
                             <div class="media-body media-middle">
                                 <a href="student-profile.html"
                                     class="card-title">{{__("Grace U, Lagos State")}}</a>
-                                <div class="rating mt-4pt">
+                                {{-- <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star_border</span></span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
     
