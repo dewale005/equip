@@ -12,6 +12,7 @@ use App\Http\Controllers\ForumController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\QuestionsCommentsController;
+use App\Http\Controllers\QuizController;
 use App\Http\Controllers\SectionlessonController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,7 @@ Route::get('quiz/{section}/course/{course}', [CourseQuestionController::class, '
 Route::resource('course-lesson', SectionlessonController::class);
 Route::post('course-lesson/{id}', [SectionlessonController::class, 'store'])->name('lesson.add');
 Route::resource('enrollment', EnrollmentController::class);
+Route::resource('scoring', QuizController::class);
 Route::resource('forum', ForumController::class);
 Route::resource('comment.question', QuestionsCommentsController::class);
 Route::post('enrollment/{id}', [EnrollmentController::class, 'store'])->name('enrollment.store');

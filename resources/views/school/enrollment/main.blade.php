@@ -139,14 +139,14 @@
                         </div>
                         <div class="media ml-12pt">
                             <div class="media-left mr-12pt">
-                                <a href="student-profile.html"
+                                <a href="."
                                     class="avatar avatar-sm">
                                     <!-- <img src="public/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
                                     <span class="avatar-title rounded-circle">EL</span>
                                 </a>
                             </div>
                             <div class="media-body media-middle">
-                                <a href="student-profile.html"
+                                <a href="."
                                     class="card-title">{{ __("Ejibe L. Abia State")}}</a>
                                 <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
@@ -169,14 +169,14 @@
                         </div>
                         <div class="media ml-12pt">
                             <div class="media-left mr-12pt">
-                                <a href="student-profile.html"
+                                <a href="."
                                     class="avatar avatar-sm">
                                     <!-- <img src="public/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
                                     <span class="avatar-title rounded-circle">SB</span>
                                 </a>
                             </div>
                             <div class="media-body media-middle">
-                                <a href="student-profile.html"
+                                <a href="."
                                     class="card-title">{{__("SAiDU ABDULLAHI Borno State")}}</a>
                                 <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
@@ -199,15 +199,14 @@
                         </div>
                         <div class="media ml-12pt">
                             <div class="media-left mr-12pt">
-                                <a href="student-profile.html"
+                                <a href="."
                                     class="avatar avatar-sm">
                                     <!-- <img src="public/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
                                     <span class="avatar-title rounded-circle">GU</span>
                                 </a>
                             </div>
                             <div class="media-body media-middle">
-                                <a href="student-profile.html"
-                                    class="card-title">{{__("Grace U, Lagos State")}}</a>
+                                <a href="." class="card-title">{{__("Grace U, Lagos State")}}</a>
                                 <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>

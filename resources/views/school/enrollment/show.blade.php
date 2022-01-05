@@ -31,9 +31,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ml-lg-16pt">
-                        <a href="." class="btn btn-light">Library</a>
-                    </div>
                 </div>
 
             </div>
@@ -45,9 +42,9 @@
                 <div class="row">
                     <div class="col-lg-8">
 
-                        <div class="js-player card bg-primary text-center embed-responsive embed-responsive-16by9 mb-24pt">
-                            <div class="player embed-responsive-item">
-                                <div class="d-flex flex-column align-items-center justify-content-center">
+                        {{-- <div class="js-player card bg-primary text-center embed-responsive embed-responsive-16by9 mb-24pt">
+                            <div class="player embed-responsive-item"> --}}
+                                {{-- <div class="d-flex flex-column align-items-center justify-content-center">
                                     <p class="lead text-white-70 measure-lead">It’s not every day that one of the most
                                         important front-end libraries in web development gets a complete overhaul. Keep your
                                         skills relevant and up-to-date with this comprehensive introduction to Google’s
@@ -56,13 +53,13 @@
                                     {{-- <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center">
                                         <a href="student-take-lesson.html" class="btn btn-white">Resume course</a>
                                     </div> --}}
-                                </div>
+                                {{-- </div> --}}
                                 <div class="player__embed d-none">
                                     <iframe class="embed-responsive-item" src="{{ $course->trailler_url }}"
                                         allowfullscreen=""></iframe>
                                 </div>
-                            </div>
-                        </div>
+                            {{-- </div>
+                        </div> --}}
 
                         {{-- <div class="mb-24pt">
                             <span class="chip chip-outline-secondary d-inline-flex align-items-center">
@@ -79,7 +76,7 @@
 
                             @foreach ($course->section as $item)
                                 <div class="d-flex align-items-center page-num-container">
-                                    <div class="page-num">1</div>
+                                    <div class="page-num">{{ $loop->iteration }}</div>
                                     <h4>{{ $item->title }}</h4>
                                 </div>
 
@@ -97,18 +94,14 @@
                                             <ul class="list-unstyled collapse show" id="toc-content-1">
                                                 @foreach ($item->lesson as $data)
                                                     <li class="accordion__menu-link">
-                                                        <span
-                                                            class="material-icons icon-16pt icon--left text-body">check_circle</span>
-                                                        <a class="flex"
-                                                            href="{{ route('lesson.start', $data->id)}}">{{ $data->title }}</a>
+                                                        <span class="material-icons icon-16pt icon--left text-body">check_circle</span>
+                                                        <a class="flex" href="{{ route('lesson.start', $data->id)}}">{{ $data->title }}</a>
                                                         <span class="text-muted">{{ $data->duration }}</span>
                                                     </li>
                                                 @endforeach
                                                 <li class="accordion__menu-link">
-                                                    <span
-                                                        class="material-icons icon-16pt icon--left text-body">check_circle</span>
-                                                    <a class="flex"
-                                                        href="{{ route('quiz.start', [$course, $item->id] ) }}">Quiz</a>
+                                                    <span class="material-icons icon-16pt icon--left text-body">check_circle</span>
+                                                    <a class="flex" href="{{ route('quiz.start', [$course, $item->id] ) }}">Quiz</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -423,31 +416,31 @@
 
         <div class="page-section bg-alt">
             <div class="container page__container">
-
+    
                 <div class="page-separator">
-                    <div class="page-separator__text">Feedback</div>
+                    <div class="page-separator__text">{{__("Feedback")}}</div>
                 </div>
-
+    
                 <div class="row">
-
+    
                     <div class="col-sm-6 col-md-4">
-
+    
                         <div class="card card-feedback card-body">
                             <blockquote class="blockquote mb-0">
-                                <p class="text-70 small mb-0">A wonderful course on how to start. Eddie beautifully conveys
-                                    all essentials of a becoming a good Angular developer. Very glad to have taken this
-                                    course. Thank you Eddie Bryan.</p>
+                                <p class="text-70 small mb-0">{{__("On developing a business plan and getting a loan to start a business.i  learnt to stay focused in other to get to the top. Also on who am I. I now know that I am a unique being that doesn't need to copy other to achieve my goals in life.")}}</p>
                             </blockquote>
                         </div>
                         <div class="media ml-12pt">
                             <div class="media-left mr-12pt">
-                                <a href="student-profile.html" class="avatar avatar-sm">
+                                <a href="."
+                                    class="avatar avatar-sm">
                                     <!-- <img src="public/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
-                                    <span class="avatar-title rounded-circle">UK</span>
+                                    <span class="avatar-title rounded-circle">EL</span>
                                 </a>
                             </div>
                             <div class="media-body media-middle">
-                                <a href="student-profile.html" class="card-title">Umberto Kass</a>
+                                <a href="."
+                                    class="card-title">{{ __("Ejibe L. Abia State")}}</a>
                                 <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
@@ -457,27 +450,27 @@
                                 </div>
                             </div>
                         </div>
-
+    
                     </div>
-
+    
                     <div class="col-sm-6 col-md-4">
-
+    
                         <div class="card card-feedback card-body">
                             <blockquote class="blockquote mb-0">
-                                <p class="text-70 small mb-0">A wonderful course on how to start. Eddie beautifully conveys
-                                    all essentials of a becoming a good Angular developer. Very glad to have taken this
-                                    course. Thank you Eddie Bryan.</p>
+                                <p class="text-70 small mb-0">{{__("This course has opened my eyes and offered me the opportunity of utilising my potentials to the fullest. I was able to acquire knowledge on jobs that would thrive in future, maintaining good accounting system in an organization, and how to use the social media to boost business opportunities among many others.")}}</p>
                             </blockquote>
                         </div>
                         <div class="media ml-12pt">
                             <div class="media-left mr-12pt">
-                                <a href="student-profile.html" class="avatar avatar-sm">
+                                <a href="."
+                                    class="avatar avatar-sm">
                                     <!-- <img src="public/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
-                                    <span class="avatar-title rounded-circle">UK</span>
+                                    <span class="avatar-title rounded-circle">SB</span>
                                 </a>
                             </div>
                             <div class="media-body media-middle">
-                                <a href="student-profile.html" class="card-title">Umberto Kass</a>
+                                <a href="."
+                                    class="card-title">{{__("SAiDU ABDULLAHI Borno State")}}</a>
                                 <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
@@ -487,27 +480,27 @@
                                 </div>
                             </div>
                         </div>
-
+    
                     </div>
-
+    
                     <div class="col-sm-6 col-md-4">
-
+    
                         <div class="card card-feedback card-body">
                             <blockquote class="blockquote mb-0">
-                                <p class="text-70 small mb-0">A wonderful course on how to start. Eddie beautifully conveys
-                                    all essentials of a becoming a good Angular developer. Very glad to have taken this
-                                    course. Thank you Eddie Bryan.</p>
+                                <p class="text-70 small mb-0">{{__("Great lessons. What I learnt here cannot be found in higher institution syllabus. I have learnt a lot on discovering who I am through personality test By asking people about myself. I have learnt that qualification alone cannot showcase u but the skill u acquire can take u to higher level.")}}</p>
                             </blockquote>
                         </div>
                         <div class="media ml-12pt">
                             <div class="media-left mr-12pt">
-                                <a href="student-profile.html" class="avatar avatar-sm">
+                                <a href="."
+                                    class="avatar avatar-sm">
                                     <!-- <img src="public/images/people/110/guy-.jpg" width="40" alt="avatar" class="rounded-circle"> -->
-                                    <span class="avatar-title rounded-circle">UK</span>
+                                    <span class="avatar-title rounded-circle">GU</span>
                                 </a>
                             </div>
                             <div class="media-body media-middle">
-                                <a href="student-profile.html" class="card-title">Umberto Kass</a>
+                                <a href="."
+                                    class="card-title">{{__("Grace U, Lagos State")}}</a>
                                 <div class="rating mt-4pt">
                                     <span class="rating__item"><span class="material-icons">star</span></span>
                                     <span class="rating__item"><span class="material-icons">star</span></span>
@@ -517,9 +510,9 @@
                                 </div>
                             </div>
                         </div>
-
+    
                     </div>
-
+    
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@
 
                             <div class="row">
                                 <div class="col-md-12">
-                                    {!! Form::open(['route' => ['home'], 'method' => 'get',]) !!}
+                                    {!! Form::open(['route' => ['scoring.store', $section], 'method' => 'post',]) !!}
                                     @foreach ($question as $data)
                                         <div class="form-group">
                                             <p>

@@ -43,7 +43,7 @@
 
                                 <div class="card card-group-row__card">
                                     <div class="card-header d-flex align-items-center">
-                                        <div class="h2 mb-0 mr-3">0</div>
+                                        <div class="h2 mb-0 mr-3">{{ $user->score }}</div>
                                         <div class="flex">
                                             <p class="card-title">Point</p>
                                             <p class="card-subtitle text-50">Total Points on refferals</p>
